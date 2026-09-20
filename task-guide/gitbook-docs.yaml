@@ -1,0 +1,42 @@
+# GitBook Site Git Sync 설정
+# 위치: task-guide/gitbook-docs.yaml  (GitBook의 Project directory = task-guide)
+# 경로 기준: content.directory 는 Project directory(task-guide) 기준 상대 경로입니다.
+
+site:
+  title: NHN Cloud Task Guide
+  structure:
+    - type: space
+      key: space-task-guide-ko
+      title: Task Guide
+      path: task-guide
+      default: true
+      content:
+        directory: ./ko
+        language: ko
+
+    # 번역본이 생기면 아래 주석을 풀어 언어별 스페이스를 추가합니다.
+    # key 는 파일 전체에서 유일해야 하고, default: true 는 정확히 하나만 둡니다.
+    #
+    # - type: space
+    #   key: space-task-guide-en
+    #   title: Task Guide
+    #   path: task-guide-en
+    #   content:
+    #     directory: ./en
+    #     language: en
+    #
+    # - type: space
+    #   key: space-task-guide-ja
+    #   title: Task Guide
+    #   path: task-guide-ja
+    #   content:
+    #     directory: ./ja
+    #     language: ja
+    #
+    # - type: space
+    #   key: space-task-guide-zh
+    #   title: Task Guide
+    #   path: task-guide-zh
+    #   content:
+    #     directory: ./zh
+    #     language: zh
