@@ -40,24 +40,26 @@ graph LR
     G -->|"⑥ 원격 전송"| H
 ```
 
-> [!NOTE]
-> **Security Groups와의 역할 분담**
-> Network Firewall과 Security Groups는 모두 트래픽을 제어하지만, 적용 범위와 방식이 다릅니다. 두 서비스는 독립적으로 동작하므로, 양쪽 모두에서 허용해야 트래픽이 통과합니다.
->
-> | 구분 | Security Groups | Network Firewall |
-> |---|---|---|
-> | 적용 단위 | 인스턴스 | VPC(서브넷) |
-> | 기본 정책 | 모든 아웃바운드 허용, 모든 인바운드 차단 | 모든 트래픽 차단(default-deny) |
-> | 로그 | [Flow Log](https://www.nhncloud.com/kr/service/network/flow-log)로 수집 가능 | 정책별 로깅 가능 |
-> | 우선순위 | 없음(규칙 합집합 적용) | 우선순위 번호로 순서 지정 |
+{% hint style="info" %}
+**Security Groups와의 역할 분담**
+Network Firewall과 Security Groups는 모두 트래픽을 제어하지만, 적용 범위와 방식이 다릅니다. 두 서비스는 독립적으로 동작하므로, 양쪽 모두에서 허용해야 트래픽이 통과합니다.
+
+| 구분 | Security Groups | Network Firewall |
+|---|---|---|
+| 적용 단위 | 인스턴스 | VPC(서브넷) |
+| 기본 정책 | 모든 아웃바운드 허용, 모든 인바운드 차단 | 모든 트래픽 차단(default-deny) |
+| 로그 | [Flow Log](https://www.nhncloud.com/kr/service/network/flow-log)로 수집 가능 | 정책별 로깅 가능 |
+| 우선순위 | 없음(규칙 합집합 적용) | 우선순위 번호로 순서 지정 |
+{% endhint %}
 
 ## 시작하기 전에
 
 - Network Firewall 서비스가 활성화되어 있고, Network Firewall 생성이 완료되어 있어야 합니다. 생성 시 VPC, 서브넷, NAT용 서브넷, 외부 전송용 서브넷을 지정해야 하므로, 보호 대상 VPC와 용도별 서브넷(보호 대상 서브넷, NAT용 서브넷, 외부 전송용 서브넷)을 미리 구성하세요. 서비스 활성화 및 Network Firewall 생성에 대한 자세한 내용은 [콘솔 사용 가이드](https://docs.nhncloud.com/ko/Security/Network-Firewall/ko/console-guide/)를 참고하세요.
 - 트래픽 로그 외부 전송을 위한 Log & Crash Search 서비스가 활성화되어 있어야 합니다. Network Firewall의 트래픽 로그 외부 전송은 Syslog, Object Storage, Log & Crash Search를 지원하며, 이 가이드에서는 Log & Crash Search로 전송하는 경우를 예시로 설명합니다.
 
-> [!NOTE]
-> Network Firewall은 생성 시점부터 과금이 시작됩니다. 이중화(HA) 구성이 아닌 단일 구성을 선택하면 1대만 과금됩니다.
+{% hint style="info" %}
+Network Firewall은 생성 시점부터 과금이 시작됩니다. 이중화(HA) 구성이 아닌 단일 구성을 선택하면 1대만 과금됩니다.
+{% endhint %}
 
 ## 허용 정책 추가하기
 
@@ -124,8 +126,9 @@ Network Firewall은 기본 정책이 **모든 트래픽 차단**(default-deny)�
 
 정책이 추가되면 ACL 테이블에 새 행이 나타납니다. 새 정책은 `default-deny` 위에 자동 배정되어 더 높은 우선순위를 갖습니다. 정책은 우선순위가 높은 순서(숫자가 작은 순서)대로 평가되므로, 조건에 맞는 트래픽은 `default-deny`에 도달하기 전에 이 정책에 의해 허용됩니다.
 
-> [!NOTE]
-> `default-deny`는 항상 맨 아래에 위치하며, 그 아래로는 정책을 이동할 수 없습니다. 정책 간 순서를 조정하려면 **이동**을 클릭해 우선순위를 변경할 수 있습니다.
+{% hint style="info" %}
+`default-deny`는 항상 맨 아래에 위치하며, 그 아래로는 정책을 이동할 수 없습니다. 정책 간 순서를 조정하려면 **이동**을 클릭해 우선순위를 변경할 수 있습니다.
+{% endhint %}
 
 ## 로그 확인 및 Log & Crash Search 연동하기
 
@@ -147,8 +150,9 @@ Network Firewall은 기본 정책이 **모든 트래픽 차단**(default-deny)�
 
 4. **검색**을 클릭하세요. 결과는 테이블 형태로 표시되며, 날짜/시간, 출발지, 목적지, 프로토콜, 출발지 포트, 목적지 포트, 동작, 정책 이름, NAT 등을 확인할 수 있습니다.
 
-> [!NOTE]
-> **엑셀 내려받기**를 클릭해 조회 결과를 다운로드할 수 있습니다.
+{% hint style="info" %}
+**엑셀 내려받기**를 클릭해 조회 결과를 다운로드할 수 있습니다.
+{% endhint %}
 
 ### 기본 차단 정책 로그 활성화
 
@@ -176,15 +180,17 @@ Network Firewall 콘솔의 **로그** 탭은 단기 조회에 적합합니다. �
 
 5. 검증이 완료되면 **저장**을 클릭하세요.
 
-> [!NOTE]
-> **로그 원격 전송 설정** 화면에서 **Syslog** 또는 **Object Storage**를 선택해 Syslog 서버나 Object Storage로도 로그를 전송할 수 있습니다. Syslog를 선택하면 원격지의 IP 주소, 프로토콜(UDP/TCP), 포트 번호를 지정합니다.
+{% hint style="info" %}
+**로그 원격 전송 설정** 화면에서 **Syslog** 또는 **Object Storage**를 선택해 Syslog 서버나 Object Storage로도 로그를 전송할 수 있습니다. Syslog를 선택하면 원격지의 IP 주소, 프로토콜(UDP/TCP), 포트 번호를 지정합니다.
+{% endhint %}
 
 ## 동작 확인하기
 
 정책이 의도한 대로 동작하는지 다음 순서로 확인합니다.
 
-> [!NOTE]
-> 이 시나리오는 같은 VPC 내 서브넷 간 통신이므로 별도의 NAT 설정이 필요하지 않습니다. NAT 설정은 외부에서 내부로, 또는 내부에서 외부로 통신할 때만 필요합니다.
+{% hint style="info" %}
+이 시나리오는 같은 VPC 내 서브넷 간 통신이므로 별도의 NAT 설정이 필요하지 않습니다. NAT 설정은 외부에서 내부로, 또는 내부에서 외부로 통신할 때만 필요합니다.
+{% endhint %}
 
 1. 웹 서브넷에 속한 인스턴스에서 DB 서브넷의 MySQL 포트로 접속을 시도합니다.
 

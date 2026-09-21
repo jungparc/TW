@@ -90,8 +90,9 @@ User Access Key는 토큰 발급에 필요한 인증 키입니다. Secret Access
 
 4. **Secret Access Key**를 반드시 복사해 두세요. 모달을 닫은 뒤에는 다시 확인할 수 없습니다.
 
-> [!WARNING]
-> User Access Key 또는 Secret Access Key가 유출되었거나 유출이 의심되는 경우 해당 키를 즉시 폐기하고 새로 발급받아야 합니다.
+{% hint style="warning" %}
+User Access Key 또는 Secret Access Key가 유출되었거나 유출이 의심되는 경우 해당 키를 즉시 폐기하고 새로 발급받아야 합니다.
+{% endhint %}
 
 ### User Access Key 토큰 발급하기
 
@@ -118,8 +119,9 @@ curl -X POST "https://oauth.api.nhncloudservice.com/oauth2/token/create" \
 
 `access_token` 값을 복사해 두세요. 다음 단계에서 API 호출 시 인증 헤더에 사용합니다.
 
-> [!NOTE]
-> 토큰의 유효 시간은 기본 86,400초(24시간)이며, **API 보안 설정** 페이지에서 60초~86,400초 범위 내에서 변경할 수 있습니다.
+{% hint style="info" %}
+토큰의 유효 시간은 기본 86,400초(24시간)이며, **API 보안 설정** 페이지에서 60초~86,400초 범위 내에서 변경할 수 있습니다.
+{% endhint %}
 
 ### 기밀 데이터 조회 API 호출하기
 
@@ -147,8 +149,9 @@ curl -X GET "https://api-keymanager.nhncloudservice.com/keymanager/v1.3/appkey/{
 
 `body.secret`에 앞서 등록한 기밀 데이터가 포함되어 있으면 정상적으로 조회된 것입니다.
 
-> [!NOTE]
-> Secure Key Manager API의 전체 파라미터 명세는 [Secure Key Manager API v1.3 가이드](https://docs.nhncloud.com/ko/Security/Secure%20Key%20Manager/ko/api-guide-v1.3/)를 참고하세요. User Access Key 토큰 인증은 API v1.3에서만 지원합니다.
+{% hint style="info" %}
+Secure Key Manager API의 전체 파라미터 명세는 [Secure Key Manager API v1.3 가이드](https://docs.nhncloud.com/ko/Security/Secure%20Key%20Manager/ko/api-guide-v1.3/)를 참고하세요. User Access Key 토큰 인증은 API v1.3에서만 지원합니다.
+{% endhint %}
 
 ## 용어 정리
 
