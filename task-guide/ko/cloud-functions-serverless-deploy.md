@@ -174,23 +174,6 @@ fmt.Println(string(body))                      // hello, world!
 함수를 삭제하면 작성한 코드와 설정이 함께 삭제되며 복구할 수 없습니다.
 {% endhint %}
 
-# Expandable blocks
-
-<details open>
-
-<summary>Add your expandable title here</summary>
-
-Add your expandable body text here. This expandable is expanded by default.
-
-</details>
-
-<details>
-
-<summary>Add your expandable title here</summary>
-
-Add your expandable body text here. This expandable is collapsed by default.
-
-</details>
 
 ## 용어 정리
 
