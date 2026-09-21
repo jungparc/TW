@@ -31,7 +31,10 @@ Cloud Functions는 서버를 직접 준비하지 않고 함수 단위로 코드�
 4. **유형**은 **Pool Manager**를 그대로 둡니다. 호출될 때만 인스턴스가 만들어지고 호출이 없으면 사라지므로, 요청이 꾸준하지 않은 함수에 적합합니다.
 
 {% hint style="info" %}
-요청이 많고 빠른 응답이 필요하다면 **New Deployment**를 선택합니다. 인스턴스를 상시 유지해 응답이 빠른 대신, 호출이 없어도 리소스를 계속 사용합니다. 두 유형 모두 다른 함수와 자원을 나눠 쓰지만, **Pool Manager**는 CPU 사용량에 상한이 없어 다른 함수와 경합하면 실행 성능이 달라질 수 있고, **New Deployment**는 **리소스**에서 선택한 메모리 크기에 따라 CPU와 메모리 상한이 함께 정해져 그 범위 안에서 실행됩니다. 실행 성능을 일정하게 유지해야 하는 작업에는 **New Deployment**를 사용하세요.
+## 요청이 많고 빠른 응답이 필요하다면 **New Deployment**를 선택합니다. 
+
+- 인스턴스를 상시 유지해 응답이 빠른 대신, 호출이 없어도 리소스를 계속 사용합니다. 두 유형 모두 다른 함수와 자원을 나눠 쓰지만, **Pool Manager**는 CPU 사용량에 상한이 없어 다른 함수와 경합하면 실행 성능이 달라질 수 있고, **New Deployment**는 **리소스**에서 선택한 메모리 크기에 따라 CPU와 메모리 상한이 함께 정해져 그 범위 안에서 실행됩니다. 
+- 실행 성능을 일정하게 유지해야 하는 작업에는 **New Deployment**를 사용하세요.
 {% endhint %}
 
 
@@ -150,7 +153,7 @@ fmt.Println(string(body))                      // hello, world!
 {% endtab %}
 {% endtabs %}
 
-    브라우저 주소 창에 같은 URL을 입력해도 결과를 볼 수 있습니다.
+브라우저 주소 창에 같은 URL을 입력해도 결과를 볼 수 있습니다.
 
 
 
@@ -167,8 +170,27 @@ fmt.Println(string(body))                      // hello, world!
 
 1. 함수 목록에서 삭제할 함수를 선택한 다음 **함수 삭제**를 클릭하세요.
 
-    > [!WARNING]
-    > 함수를 삭제하면 작성한 코드와 설정이 함께 삭제되며 복구할 수 없습니다.
+{% hint style="warning" %}
+함수를 삭제하면 작성한 코드와 설정이 함께 삭제되며 복구할 수 없습니다.
+{% endhint %}
+
+# Expandable blocks
+
+<details open>
+
+<summary>Add your expandable title here</summary>
+
+Add your expandable body text here. This expandable is expanded by default.
+
+</details>
+
+<details>
+
+<summary>Add your expandable title here</summary>
+
+Add your expandable body text here. This expandable is collapsed by default.
+
+</details>
 
 ## 용어 정리
 
