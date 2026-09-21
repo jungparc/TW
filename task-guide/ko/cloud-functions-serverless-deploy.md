@@ -147,15 +147,36 @@ fmt.Println(string(body))                      // hello, world!
 브라우저 주소 창에 같은 URL을 입력해도 결과를 볼 수 있습니다.
 
 ## 응용하기
-
-
-|                 |                                                                                                                                             |                                                                                                                                                                                                                    | Cover image                                                        | Cover image (dark)                                                 | Cover image (dark)                                             | Cover image (dark)                                                 |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------ |
-| **일정 주기로 실행**   | -Timer 트리거를 추가하면 크론 표현식으로 지정한 주기마다 함수를 실행할 수 있습니다. API Gateway와 연동해 인증이나 사용량 제어를 붙일 수도 있습니다.                                                | [hhttps://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/trigger-guide/](https://www.gitbook.com/)                                                                                                              | [25_12_10_cards_3.png](../../.gitbook/assets/25_12_10_cards_3.png) | [25_12_10_cards_2.png](../../.gitbook/assets/25_12_10_cards_2.png) |                                                                | [25_12_10_cards_2.png](../../.gitbook/assets/25_12_10_cards_2.png) |
-| **설정값을 코드와 분리** | 외부 서비스 인증 정보나 접속 정보를 코드에 넣지 않고 환경 변수로 등록할 수 있습니다. 함수당 100개까지 등록할 수 있으며, 값은 콘솔 조회 화면에서 마스킹되지만 저장과 로그에는 암호화가 적용되지 않으므로 노출되면 곤란한 값은 주의해서 다룹니다. | [hhttps://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/console-guide/#function-environment-variables](https://developer.gitbook.com/)                                                                         | [25_12_10_cards_1.png](../../.gitbook/assets/25_12_10_cards_1.png) |                                                                    | [25_12_10_cards.png](../../.gitbook/assets/25_12_10_cards.png) | [25_12_10_cards.png](../../.gitbook/assets/25_12_10_cards.png)     |
-| **실행 로그 확인**    | 로그 서비스 연동을 사용하면 함수 실행 로그를 Log & Crash Search에서 조회할 수 있습니다.                                                                                  | [https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/console-guide/#basic-information-of-functions](https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/console-guide/#basic-information-of-functions) | [25_12_10_cards_5.png](../../.gitbook/assets/25_12_10_cards_5.png) |                                                                    |                                                                | [25_12_10_cards_4.png](../../.gitbook/assets/25_12_10_cards_4.png) |
-
-
+<table data-view="cards">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th data-hidden data-card-target data-type="content-ref"></th>
+      <th data-hidden data-card-cover data-type="files"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>일정 주기로 실행</strong></td>
+      <td>Timer 트리거를 추가하면 크론 표현식으로 지정한 주기마다 함수를 실행할 수 있습니다. API Gateway와 연동해 인증이나 사용량 제어를 붙일 수도 있습니다.</td>
+      <td><a href="https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/trigger-guide">https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/trigger-guide</a></td>
+      <td><a href="https://example.com/image1.svg">example_image1.svg</a></td>
+    </tr>
+    <tr>
+      <td><strong>설정값을 코드와 분리</strong></td>
+      <td>외부 서비스 인증 정보나 접속 정보를 코드에 넣지 않고 환경 변수로 등록할 수 있습니다.</td>
+      <td><a href="https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/console-guide/#function-environment-variables">https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/console-guide/#function-environment-variables</a></td>
+      <td><a href="https://example.com/image2.svg">example_image2.svg</a></td>
+    </tr>
+    <tr>
+      <td><strong>실행 로그 확인</strong></td>
+      <td>로그 서비스 연동을 사용하면 함수 실행 로그를 Log & Crash Search에서 조회할 수 있습니다.</td>
+      <td><a href="hhttps://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/console-guide/#basic-information-of-functions">https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/console-guide/#basic-information-of-functions</a></td>
+      <td><a href="https://example.com/image3.svg">example_image3.svg</a></td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## 정리하기
