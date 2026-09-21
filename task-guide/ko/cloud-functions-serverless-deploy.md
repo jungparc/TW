@@ -156,6 +156,17 @@ fmt.Println(string(body))                      // hello, world!
 브라우저 주소 창에 같은 URL을 입력해도 결과를 볼 수 있습니다.
 
 
+{% code title="[테스트용] index.js" overflow="wrap" lineNumbers="true" %}
+
+```javascript
+‌import * as React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(<App />, window.document.getElementById('root'));
+```
+
+{% endcode %}
 
 ## 응용하기
 
