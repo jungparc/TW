@@ -17,3 +17,16 @@ site:
           content:
             directory: ./ko
             language: ko
+    - type: section
+      key: section-2
+      title: Landing Page
+      path: landing-page
+      children:
+        - type: space
+          key: space-1
+          title: Landing Page
+          path: landing-page
+          default: true
+          draft: true
+          content:
+            directory: ./landing-page
