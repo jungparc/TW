@@ -30,16 +30,13 @@ Cloud Functions는 서버를 직접 준비하지 않고 함수 단위로 코드�
 
 4. **유형**은 **Pool Manager**를 그대로 둡니다. 호출될 때만 인스턴스가 만들어지고 호출이 없으면 사라지므로, 요청이 꾸준하지 않은 함수에 적합합니다.
 
-{% hint style="info" %}
-요청이 많고 빠른 응답이 필요하다면 **New Deployment**를 선택합니다. 인스턴스를 상시 유지해 응답이 빠른 대신, 호출이 없어도 리소스를 계속 사용합니다. 두 유형 모두 다른 함수와 자원을 나눠 쓰지만, **Pool Manager**는 CPU 사용량에 상한이 없어 다른 함수와 경합하면 실행 성능이 달라질 수 있고, **New Deployment**는 **리소스**에서 선택한 메모리 크기에 따라 CPU와 메모리 상한이 함께 정해져 그 범위 안에서 실행됩니다. 실행 성능을 일정하게 유지해야 하는 작업에는 **New Deployment**를 사용하세요.
-{% endhint %}
-
+    > [!NOTE]
+    > 요청이 많고 빠른 응답이 필요하다면 **New Deployment**를 선택합니다. 인스턴스를 상시 유지해 응답이 빠른 대신, 호출이 없어도 리소스를 계속 사용합니다. 두 유형 모두 다른 함수와 자원을 나눠 쓰지만, **Pool Manager**는 CPU 사용량에 상한이 없어 다른 함수와 경합하면 실행 성능이 달라질 수 있고, **New Deployment**는 **리소스**에서 선택한 메모리 크기에 따라 CPU와 메모리 상한이 함께 정해져 그 범위 안에서 실행됩니다. 실행 성능을 일정하게 유지해야 하는 작업에는 **New Deployment**를 사용하세요.
 
 5. **리소스**, **실행 시간 제한**, **동시 실행 설정**은 기본값을 그대로 둡니다. 실행 시간 제한은 `60`초이며 최대 900초까지, 동시 실행 설정은 `1`건이며 최대 1,000건까지 지정할 수 있습니다.
 
-{% hint style="warning" %}
-함수 실행이 제한 시간을 넘기면 호출은 `504` 응답으로 끝납니다. 외부 API를 호출하는 함수처럼 응답이 오래 걸리는 작업은 제한 시간을 넉넉히 지정하세요.
-{% endhint %}
+    > [!NOTE]
+    > 함수 실행이 제한 시간을 넘기면 호출은 `504` 응답으로 끝납니다. 외부 API를 호출하는 함수처럼 응답이 오래 걸리는 작업은 제한 시간을 넉넉히 지정하세요.
 
 6. **다음**을 클릭하세요.
 
@@ -67,17 +64,15 @@ Cloud Functions는 서버를 직접 준비하지 않고 함수 단위로 코드�
         return "hello, world!"
     ```
 
-{% hint style="info" %}
- 런타임 목록에는 지원 중단된 런타임에 **지원 중단** 배지가 표시되고, 사용 중단된 런타임은 목록에서 제외되어 선택할 수 없습니다. 지원 중단 런타임으로도 함수를 만들 수 있지만 최신 런타임을 사용하세요.
- {% endhint %}
+    > [!NOTE]
+    > 런타임 목록에는 지원 중단된 런타임에 **지원 중단** 배지가 표시되고, 사용 중단된 런타임은 목록에서 제외되어 선택할 수 없습니다. 지원 중단 런타임으로도 함수를 만들 수 있지만 최신 런타임을 사용하세요.
 
 2. **빌드**를 클릭하세요. 빌드가 끝나면 **빌드 성공**이 표시되고, 아래 **빌드 결과** 탭에서 설치 로그를 확인할 수 있습니다.
 
 3. **테스트**를 클릭해 함수가 실행되는지 확인하세요. **테스트 결과** 탭에 함수 호출 로그가 표시됩니다.
 
-{% hint style="info" %}
- 테스트는 실행 로그만 보여 주고 응답 본문은 표시하지 않습니다. 반환값은 함수를 생성한 다음 엔드포인트 URL을 호출해 확인합니다.
-{% endhint %}
+    > [!NOTE]
+    > 테스트는 실행 로그만 보여 주고 응답 본문은 표시하지 않습니다. 반환값은 함수를 생성한 다음 엔드포인트 URL을 호출해 확인합니다.
 
 4. **생성**을 클릭하세요. **함수 생성 정보** 대화 상자에서 내용 확인 후 **생성**을 클릭합니다.
 
@@ -95,64 +90,15 @@ Cloud Functions는 서버를 직접 준비하지 않고 함수 단위로 코드�
 
 4. `200 OK`와 함께 `hello, world!`가 반환되면 배포가 끝난 것입니다.
 
-{% tabs %}
-{% tab title="HTTP" %}
-```text
-HTTP/1.1 200 OK
-Content-Type: text/html; charset=utf-8
-Content-Length: 14
+    ```text
+    HTTP/1.1 200 OK
+    Content-Type: text/html; charset=utf-8
+    Content-Length: 14
 
-hello, world!
-```
-{% endtab %}
-
-{% tab title="cURL" %}
-```bash
-curl -i https://example.com/hello
-```
-{% endtab %}
-
-{% tab title="JavaScript" %}
-```javascript
-const res = await fetch("https://example.com/hello");
-
-console.log(res.status);                        // 200
-console.log(res.headers.get("content-type"));   // text/html; charset=utf-8
-console.log(await res.text());                  // hello, world!
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-import requests
-
-res = requests.get("https://example.com/hello")
-
-print(res.status_code)                  # 200
-print(res.headers["Content-Type"])      # text/html; charset=utf-8
-print(res.text)                         # hello, world!
-```
-{% endtab %}
-
-{% tab title="Go" %}
-```go
-res, err := http.Get("https://example.com/hello")
-if err != nil {
-    log.Fatal(err)
-}
-defer res.Body.Close()
-
-body, _ := io.ReadAll(res.Body)
-fmt.Println(res.Status)                        // 200 OK
-fmt.Println(res.Header.Get("Content-Type"))    // text/html; charset=utf-8
-fmt.Println(string(body))                      // hello, world!
-```
-{% endtab %}
-{% endtabs %}
+    hello, world!
+    ```
 
     브라우저 주소 창에 같은 URL을 입력해도 결과를 볼 수 있습니다.
-
-
 
 ## 응용하기
 
