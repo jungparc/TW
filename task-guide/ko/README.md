@@ -12,6 +12,12 @@ layout:
     visible: false
   pagination:
     visible: true
+  metadata:
+    visible: false
+  tags:
+    visible: false
+  actions:
+    visible: false
 ---
 
 # NHN Cloud 활용 가이드
