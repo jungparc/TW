@@ -1,90 +1,39 @@
-# Task Guide 작성·운영 규칙
+---
+description: NHN Cloud를 사용하다 막히는 지점을 스스로 해결하도록 돕는 트러블슈팅·How-to 가이드 모음입니다.
+layout:
+  width: wide
+  title:
+    visible: false
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: true
+---
 
-NHN Cloud 사용자가 특정 증상을 만났을 때 스스로 원인을 좁히고 해결하도록 돕는 트러블슈팅·How-to 가이드를 모아 둔 디렉터리입니다. 문서를 추가하거나 고칠 때 아래 규칙을 따릅니다.
+# NHN Cloud 활용 가이드
 
-## 이 디렉터리의 성격
+## 문제를 직접 해결하는 가이드
 
-- TW 파트가 작성하는 트러블슈팅·How-to 가이드의 **원본 보관소**이며, 유관 부서와 **기술 검토를 협업**하는 공간입니다.
-- 게시처가 정해지면 문서를 옮기고 형식을 변환해야 합니다. 그래서 **특정 플랫폼에 종속되는 문법이나 외부 호스팅 자산에 의존하지 않는 것**이 이 디렉터리의 기본 원칙입니다.
+증상에서 출발해 원인을 좁히고, 자주 하는 작업은 단계별로 따라 할 수 있도록 정리했습니다.
 
-## 이관을 고려한 작성 원칙
+<button type="button" class="button primary" data-action="ask" data-icon="gitbook-assistant">무엇을 하려고 하나요?</button>
 
-나중에 어디로 옮기든 변환 비용이 적게 들도록 다음을 지킵니다.
+<a href="instance-creation-failed.md" class="button primary">트러블슈팅 시작하기</a><a href="cloud-functions-serverless-deploy.md" class="button secondary">How-to 둘러보기</a>
 
-- **표준 마크다운만 사용합니다.** 특정 정적 사이트 생성기 전용 확장 문법이나 HTML 앵커(`<a id="...">`)를 쓰지 않습니다.
-- **이미지는 저장소 안에 두고 상대 경로로 참조합니다.** 외부 CDN URL을 본문에 직접 넣지 않습니다. 원본이 저장소에 함께 있어야 이관 시 경로만 일괄 치환하면 됩니다.
-- **파일 맨 위에 메타데이터 블록을 넣지 않습니다.** 문서 제목이나 목차 순서 같은 정보를 `---` 사이에 적는 블록을 프런트매터라고 하며, 게시 도구가 이 값을 읽어 페이지를 구성합니다. 규격이 도구마다 달라서, 게시 플랫폼이 정해지면 그때 맞춰 추가합니다.
-- 문서 간 링크도 상대 경로를 씁니다.
+<h3 align="center">자주 찾는 트러블슈팅</h3>
 
-## 여러 명이 함께 쓰는 규칙
+<p align="center">증상과 같은 제목을 찾아 들어가세요.</p>
 
-TW 파트 여러 명이 주제를 나눠 작업하며 같은 정책을 따릅니다.
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><h4>인스턴스 생성 실패</h4></td><td>인스턴스가 ERROR 상태가 되거나 생성 요청이 거부될 때</td><td><a href="instance-creation-failed.md">instance-creation-failed.md</a></td></tr><tr><td><h4>SSH 접속 실패</h4></td><td>SSH 클라이언트로 인스턴스에 연결되지 않을 때</td><td><a href="instance-ssh-connection-failed.md">instance-ssh-connection-failed.md</a></td></tr><tr><td><h4>LB 멤버 INACTIVE</h4></td><td>헬스 체크가 실패해 멤버로 트래픽이 가지 않을 때</td><td><a href="lb-healthcheck-inactive-member-troubleshooting.md">lb-healthcheck-inactive-member-troubleshooting.md</a></td></tr></tbody></table>
 
-- **한 PR에는 문서 하나만** 담습니다. 기술 검토 담당자가 달라지므로 섞으면 리뷰가 지연됩니다.
-- **파일명으로 문서 상태를 관리하지 않습니다.** 검토 중이라는 사실은 PR로 나타냅니다. 제작 계획의 작업 단계와 다음과 같이 맞춥니다.
+***
 
-  | 작업 단계 | 어떻게 |
-  | --- | --- |
-  | 1. 초안 작성 | master에 바로 커밋합니다. 여러 번 고쳐 쓰는 단계라 PR을 열지 않습니다 |
-  | 2. 기술 검토 요청 | PR을 올립니다. 검토 자체는 사내 두레이 태스크에서 진행하고, PR은 원본과 이력을 보관합니다 |
-  | 3. 최종본 작성 | 검토 의견 반영 커밋 추가 + 반영 내역 요약을 PR 코멘트로 |
-  | 4. 완료·배포 대기 | 머지 |
+<h3 align="center">How-to 가이드</h3>
 
-### 기술 검토는 두레이 프로젝트에서
+<p align="center">자주 하는 작업을 처음부터 끝까지 따라 합니다.</p>
 
-유관 부서와의 기술 검토는 별도의 두레이 프로젝트에서 진행합니다. 검토 과정에서 고객 문의 사례, 리소스 ID, 내부 로그처럼 공개할 수 없는 자료를 주고받아야 하고, 유관 부서의 업무 채널도 그쪽이기 때문입니다.
-
-저장소에는 **결론만 남깁니다.**
-
-- 검토가 끝나면 **무엇이 지적되어 무엇을 고쳤는지** 요약을 PR 코멘트로 남깁니다. 문서 변경과 그 이유가 함께 남아야 나중에 이관하거나 재검토할 때 근거를 다시 찾지 않습니다.
-- **공개 저장소이므로 PR 코멘트에도 고객사명, 리소스 ID, 두레이 링크를 쓰지 않습니다.** 요약은 사내 정보를 빼고 판단과 결과만 적습니다.
-- 작성자는 **GitHub 핸들**로 적습니다. 공개 저장소이므로 실명을 새로 노출하지 않고, 리뷰 요청 시 그대로 멘션할 수 있습니다.
-
-## 디렉터리와 파일명
-
-```
-task-guide/
-└── ko/                                  # 언어별 디렉터리 (ko, en, ja, zh)
-    ├── instance-creation-failed.md
-    └── images/
-        └── instance-creation-failed-flow.svg
-```
-
-- 언어별로 디렉터리를 나눕니다. 번역본은 **원문과 같은 파일명**으로 해당 언어 디렉터리에 둡니다. 번역은 게시 플랫폼이 정해진 뒤에 진행하므로 당분간 `ko`만 채워집니다.
-- 파일명은 영소문자 kebab-case로 씁니다. 예: `instance-creation-failed.md`
-- **번호 접두사(`01-`, `03_`)를 쓰지 않습니다.** 문서가 늘거나 순서가 바뀔 때마다 전체를 리네임해야 하고, 링크가 깨집니다.
-- **`_final`, `_latest`, `_draft` 같은 상태 접미사를 쓰지 않습니다.** 버전은 Git이 관리합니다. 파일명에 상태를 넣으면 저장소만 봐서는 어느 쪽이 최신인지 알 수 없습니다. 검토 중이라는 사실은 PR로 나타냅니다.
-
-## 이미지
-
-- 같은 언어 디렉터리 아래 `images/`에 두고 상대 경로로 참조합니다.
-
-  ```markdown
-  ![인스턴스 생성 실패 원인 판단 흐름](images/instance-creation-failed-flow.svg)
-  ```
-
-- 파일명은 `<문서 파일명>-<역할>` 형식을 씁니다. 예: `instance-creation-failed-flow.svg`
-- **다이어그램은 SVG로 만듭니다.** 확대해도 깨지지 않고, 텍스트가 diff에 남아 문구 수정 이력을 추적할 수 있습니다.
-- **콘솔 화면을 찍은 스크린숏은 PNG를 씁니다.** 스크린숏은 SVG로 만들 수 없습니다.
-- 다이어그램을 **PNG로 내보내 써야 하는 경우에도 SVG 원본을 함께 커밋합니다.** PNG만 남기면 나중에 규격이 달라졌을 때 처음부터 다시 그려야 합니다.
-- 다이어그램 색상은 [NHN Cloud 브랜드 가이드](https://www.nhncloud.com/kr/intro/brand-guide)를 따릅니다. BLUE `#125DE6`, NAVY `#003087`, GRAY `#586F81`, LIGHT GRAY `#BED0DE`.
-- 폰트는 배포 대상 PC에 없을 수 있으므로 범용 폰트(NanumSquare, Noto Sans KR)를 지정합니다.
-
-## 브랜치와 커밋
-
-저장소 공통 규칙을 따릅니다. [루트 README](../README.md#브랜치와-커밋)를 참고하세요.
-
-- 브랜치 예: `docs/task-guide/instance-creation-failed`
-- 커밋 예: `docs(task-guide): 인스턴스 생성 실패 트러블슈팅 가이드 추가`
-
-## Pull Request
-
-기술 검토를 요청하는 PR은 **검토가 필요한 항목을 명시적으로 적습니다.** 그래야 리뷰어가 담당 범위만 보면 됩니다.
-
-```markdown
-## 문서 목적
-문서 주제를 포함하여 어떤 목적을 위한 문서인지
-
-## 검토 요청 범위
-기술 정확성 / 용어 / 절차 재현성 등 무엇을 봐 주셨으면 하는지
-```
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><h4>Cloud Functions</h4></td><td>서버 없이 HTTP 함수 배포하기</td><td><a href="cloud-functions-serverless-deploy.md">cloud-functions-serverless-deploy.md</a></td></tr><tr><td><h4>Object Storage</h4></td><td>정적 웹사이트 호스팅하기</td><td><a href="obs-static-website-hosting.md">obs-static-website-hosting.md</a></td></tr><tr><td><h4>Secure Key Manager</h4></td><td>암호화 키 관리하기</td><td><a href="skm-key-management.md">skm-key-management.md</a></td></tr></tbody></table>
