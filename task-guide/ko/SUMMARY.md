@@ -7,7 +7,6 @@
 * [인스턴스 생성이 실패합니다](instance-creation-failed.md)
 * [인스턴스에 SSH로 접속되지 않습니다](instance-ssh-connection-failed.md)
 * [Load Balancer 헬스 체크가 실패하고 멤버가 INACTIVE로 표시됩니다](lb-healthcheck-inactive-member-troubleshooting.md)
-* [Gamebase 미소비 결제 건 조회하고 재처리하기](gamebase-unconsumed-payment.md)
 
 ## How-to
 
