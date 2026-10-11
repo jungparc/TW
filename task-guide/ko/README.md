@@ -20,7 +20,7 @@ layout:
     visible: false
 ---
 
-# NHN Cloud 활용 가이드
+# NHN Cloud Task Guides
 
 ## 문제를 직접 해결하는 가이드
 
