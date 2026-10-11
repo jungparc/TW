@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="510" viewBox="0 0 960 510" role="img" aria-labelledby="title desc">
+  <title id="title">클라이언트 요청이 Cloud Functions의 함수 엔드포인트를 거쳐 함수 인스턴스에서 실행되는 구성</title>
+  <desc id="desc">클라이언트가 HTTPS로 함수 엔드포인트를 호출하면 Pool Manager 유형은 그때 함수 인스턴스를 만들고, 인스턴스가 코드를 실행한 결과가 엔드포인트를 거쳐 클라이언트에 응답으로 돌아갑니다. 호출이 없으면 인스턴스가 제거되어 리소스 사용량이 0이 됩니다.</desc>
+
+  <defs>
+    <style>
+      .lbl  { font-family: 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; }
+      .grp  { font-size: 14px; font-weight: 700; fill: #222222; }
+      .svc  { font-size: 14px; font-weight: 700; fill: #222222; }
+      .nod  { font-size: 15px; font-weight: 700; fill: #222222; }
+      .sub  { font-size: 11.5px; fill: #555555; }
+      .edge { font-size: 12.5px; fill: #555555; }
+      .cap  { font-size: 13px; fill: #555555; }
+    </style>
+    <marker id="ar-primary" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#555555"/>
+    </marker>
+    <marker id="ar-secondary" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999999"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="510" fill="#FFFFFF"/>
+
+  <!-- 클라이언트 (NHN Cloud 밖) -->
+  <g transform="translate(44,220) scale(0.85)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M21 19C21 23.9706 25.0294 28 30 28C34.9706 28 39 23.9706 39 19C39 14.0294 34.9706 10 30 10C25.0294 10 21 14.0294 21 19ZM10 42V52H30H50V42C50 36.4772 41.0457 32 30 32C18.9543 32 10 36.4772 10 42Z" fill="#555555"/>
+  </g>
+  <text class="lbl nod" x="70" y="302" text-anchor="middle">클라이언트</text>
+
+  <!-- 그룹: NHN Cloud -->
+  <rect x="200" y="52" width="720" height="394" fill="none" stroke="#111111" stroke-width="1.5"/>
+  <g transform="translate(212,64) scale(0.75)">
+    <rect width="32" height="32" fill="#111111"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M7 16.0918C7 13.1559 7.94325 10.7445 9.83004 8.85719C11.7422 6.94364 14.0367 6 16.7393 6C20.1303 6 23.1897 7.599 24.847 10.0105L22.3229 12.5531C20.8441 10.6919 19.0595 9.74845 16.9433 9.74845C15.2351 9.74845 13.8073 10.3513 12.6599 11.5571C11.5126 12.7366 10.9263 14.2569 10.9263 16.0918C10.9263 17.8742 11.4871 19.3421 12.6345 20.5215C13.7819 21.7012 15.2096 22.2778 16.9179 22.2778C19.1105 22.2778 20.9462 21.3342 22.3994 19.4469L25 21.8846C23.2663 24.3224 20.1813 26 16.6882 26C13.9602 26 11.6401 25.0826 9.77896 23.2477C7.91785 21.3867 7 19.0013 7 16.0918Z" fill="white"/>
+  </g>
+  <text class="lbl grp" x="248" y="82">NHN Cloud</text>
+
+  <!-- 그룹: 프로젝트 -->
+  <rect x="230" y="100" width="666" height="322" fill="none" stroke="#555555" stroke-width="1.5"/>
+  <g transform="translate(242,112) scale(0.75)">
+    <rect width="32" height="32" fill="#555555"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5C5.44772 5 5 5.44772 5 6V26C5 26.5523 5.44772 27 6 27H26C26.5523 27 27 26.5523 27 26V6C27 5.44772 26.5523 5 26 5H6ZM25 10H7V25H25V10ZM18.7273 22H12.8125C11.2592 22 10 20.7408 10 19.1875C10 17.6627 11.2134 16.4213 12.7273 16.3763C12.7273 16.3758 12.7273 16.3754 12.7273 16.375C12.7273 14.511 14.1925 13 16 13C17.4325 13 18.6501 13.9492 19.0936 15.2709C20.7286 15.4587 22 16.8887 22 18.625C22 20.3942 20.6799 21.8455 19 21.9884V22H18.7273Z" fill="white"/>
+  </g>
+  <text class="lbl grp" x="278" y="130">프로젝트</text>
+
+  <!-- 서비스: Cloud Functions -->
+  <g transform="translate(250,150) scale(0.75)">
+    <path d="M45 33C51.6274 33 57 38.3726 57 45C57 51.6274 51.6274 57 45 57C38.3726 57 33 51.6274 33 45C33 38.3726 38.3726 33 45 33ZM48 6C51.3137 6 53.9999 8.68635 54 12V32.999C51.493 31.116 48.3768 30 45 30C36.7158 30 30.0001 36.7158 30 45C30 48.3768 31.116 51.4931 32.999 54H12C8.68633 54 6.00007 51.3136 6 48V12C6.00007 8.68635 8.68633 6 12 6H48ZM40.5 51L51 45L40.5 39V51ZM35.9229 24.1035C32.8274 24.0325 29.7589 25.1413 27.4521 27.4473C25.1434 29.7553 24.0342 32.8257 24.1074 35.9229L27.4355 36C27.3822 33.7542 28.1863 31.5281 29.8604 29.8545C31.5325 28.1829 33.7562 27.3785 36 27.4297L35.9229 24.1035ZM35.7812 18.0547C31.1375 17.9478 26.5348 19.6119 23.0742 23.0713C19.6117 26.5328 17.9484 31.1373 18.0576 35.7822L21.3848 35.8594C21.2953 32.0656 22.6543 28.3047 25.4824 25.4775C28.3085 22.6526 32.0672 21.2946 35.8594 21.3818L35.7812 18.0547ZM35.6406 12.0068C29.4483 11.8638 23.3109 14.0813 18.6963 18.6943C14.0798 23.3093 11.8616 29.4478 12.0068 35.6406L15.334 35.7188C15.2085 30.3771 17.1225 25.0822 21.1045 21.1016C25.0844 17.1231 30.3772 15.2099 35.7178 15.333L35.6406 12.0068Z" fill="#125DE6"/>
+  </g>
+  <text class="lbl svc" x="302" y="180">Cloud Functions</text>
+
+  <!-- 함수 엔드포인트 -->
+  <rect x="370" y="206" width="180" height="80" fill="#FFFFFF" stroke="#BBBBBB" stroke-width="1.5"/>
+  <text class="lbl nod" x="460" y="238" text-anchor="middle">함수 엔드포인트</text>
+  <text class="lbl sub" x="460" y="259" text-anchor="middle">함수 이름으로 정해지는</text>
+  <text class="lbl sub" x="460" y="275" text-anchor="middle">HTTPS 주소</text>
+
+  <!-- 함수 인스턴스 -->
+  <rect x="690" y="206" width="180" height="80" fill="#FFFFFF" stroke="#BBBBBB" stroke-width="1.5"/>
+  <text class="lbl nod" x="780" y="238" text-anchor="middle">함수 인스턴스</text>
+  <text class="lbl sub" x="780" y="259" text-anchor="middle">코드를 실행하고</text>
+  <text class="lbl sub" x="780" y="275" text-anchor="middle">응답을 반환</text>
+
+  <!-- 인스턴스 제거 -->
+  <rect x="690" y="322" width="180" height="80" fill="#FFFFFF" stroke="#BBBBBB" stroke-width="1.5"/>
+  <text class="lbl nod" x="780" y="360" text-anchor="middle">인스턴스 제거</text>
+  <text class="lbl sub" x="780" y="382" text-anchor="middle">리소스 사용량 0</text>
+
+  <!-- ① 요청 (주 경로) -->
+  <line x1="104" y1="228" x2="364" y2="228" stroke="#555555" stroke-width="1.5" marker-end="url(#ar-primary)"/>
+  <text class="lbl edge" x="234" y="219" text-anchor="middle">① HTTPS 요청</text>
+
+  <!-- ④ 응답 반환 (주 경로) -->
+  <line x1="364" y1="264" x2="104" y2="264" stroke="#555555" stroke-width="1.5" marker-end="url(#ar-primary)"/>
+  <text class="lbl edge" x="234" y="282" text-anchor="middle">④ 응답 반환</text>
+
+  <!-- ② 호출 시 생성 (주 경로) -->
+  <line x1="556" y1="228" x2="684" y2="228" stroke="#555555" stroke-width="1.5" marker-end="url(#ar-primary)"/>
+  <text class="lbl edge" x="620" y="219" text-anchor="middle">② 호출 시 생성</text>
+
+  <!-- ③ 실행 결과 반환 (주 경로) -->
+  <line x1="684" y1="264" x2="556" y2="264" stroke="#555555" stroke-width="1.5" marker-end="url(#ar-primary)"/>
+  <text class="lbl edge" x="620" y="282" text-anchor="middle">③ 실행 결과</text>
+
+  <!-- 보조 경로: 호출이 없으면 제거 -->
+  <line x1="780" y1="290" x2="780" y2="316" stroke="#999999" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ar-secondary)"/>
+  <text class="lbl edge" x="768" y="308" text-anchor="end">호출이 없으면</text>
+
+  <text class="lbl cap" x="480" y="482" text-anchor="middle">Pool Manager 유형은 호출될 때만 인스턴스를 만들고, 호출이 없으면 인스턴스를 없애 리소스 사용량이 0이 됩니다</text>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="290" viewBox="0 0 920 290" role="img" aria-labelledby="title desc">
+  <title id="title">Object Storage 정적 웹사이트 호스팅 구성</title>
+  <desc id="desc">개발자가 빌드한 정적 파일을 접근 정책이 PUBLIC인 Object Storage 컨테이너에 업로드하면, 사용자 브라우저가 정적 웹사이트 URL로 접속합니다. 선택적으로 CDN을 원본 서버로 연동해 전송 성능을 개선할 수 있습니다.</desc>
+
+  <defs>
+    <style>
+      .lbl { font-family: 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; }
+      .node-title { font-size: 16px; font-weight: 700; }
+      .node-sub   { font-size: 13px; }
+      .edge-lbl   { font-size: 13px; fill: #586F81; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#125DE6"/>
+    </marker>
+    <marker id="arrow-mint" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0FD2D0"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="290" fill="#FFFFFF"/>
+
+  <!-- 개발자 -->
+  <rect x="30" y="58" width="150" height="74" rx="8" fill="#FFFFFF" stroke="#586F81" stroke-width="2"/>
+  <text class="lbl node-title" x="105" y="101" text-anchor="middle" fill="#003087">개발자</text>
+
+  <!-- Object Storage 컨테이너 -->
+  <rect x="320" y="45" width="240" height="100" rx="8" fill="#125DE6" stroke="#125DE6" stroke-width="2"/>
+  <text class="lbl node-title" x="440" y="82" text-anchor="middle" fill="#FFFFFF">Object Storage 컨테이너</text>
+  <text class="lbl node-sub"   x="440" y="106" text-anchor="middle" fill="#FFFFFF">접근 정책 PUBLIC</text>
+  <text class="lbl node-sub"   x="440" y="126" text-anchor="middle" fill="#FFFFFF">인덱스 문서와 오류 문서 설정</text>
+
+  <!-- 사용자 브라우저 -->
+  <rect x="700" y="58" width="170" height="74" rx="8" fill="#FFFFFF" stroke="#586F81" stroke-width="2"/>
+  <text class="lbl node-title" x="785" y="101" text-anchor="middle" fill="#003087">사용자 브라우저</text>
+
+  <!-- CDN (선택) -->
+  <rect x="520" y="195" width="150" height="62" rx="8" fill="#FFFFFF" stroke="#0FD2D0" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="lbl node-title" x="595" y="226" text-anchor="middle" fill="#003087">CDN</text>
+  <text class="lbl node-sub"   x="595" y="245" text-anchor="middle" fill="#586F81">선택</text>
+
+  <!-- 개발자 → 컨테이너 -->
+  <line x1="180" y1="95" x2="312" y2="95" stroke="#125DE6" stroke-width="2" marker-end="url(#arrow)"/>
+  <text class="lbl edge-lbl" x="246" y="84" text-anchor="middle">빌드 파일 업로드</text>
+
+  <!-- 컨테이너 → 브라우저 -->
+  <line x1="560" y1="95" x2="692" y2="95" stroke="#125DE6" stroke-width="2" marker-end="url(#arrow)"/>
+  <text class="lbl edge-lbl" x="626" y="84" text-anchor="middle">정적 웹사이트 URL</text>
+
+  <!-- 컨테이너 → CDN (원본 서버) -->
+  <path d="M 440 145 L 440 226 L 512 226" fill="none" stroke="#0FD2D0" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-mint)"/>
+  <text class="lbl edge-lbl" x="450" y="180" text-anchor="start">원본 서버</text>
+
+  <!-- CDN → 브라우저 (캐시 응답) -->
+  <path d="M 670 226 L 785 226 L 785 140" fill="none" stroke="#0FD2D0" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-mint)"/>
+  <text class="lbl edge-lbl" x="727" y="216" text-anchor="middle">캐시 응답</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="586" viewBox="0 0 920 586" font-family="'NanumSquare','Noto Sans KR','Malgun Gothic',sans-serif">
+  <!--
+    인스턴스 생성 실패 원인 판단 흐름
+    NHN Cloud 공식 브랜드 컬러(https://www.nhncloud.com/kr/intro/brand-guide)
+      BLUE #125DE6 / NAVY #003087 / GRAY #586F81 / LIGHT GRAY #BED0DE
+  -->
+  <defs>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#586F81"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#125DE6"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="586" fill="#FFFFFF"/>
+
+  <!-- 아니오: 세로 흐름 -->
+  <g stroke="#586F81" stroke-width="1.6" fill="none" marker-end="url(#arrowGray)">
+    <path d="M 250 82 L 250 118"/>
+    <path d="M 250 186 L 250 242"/>
+    <path d="M 250 310 L 250 366"/>
+    <path d="M 250 434 L 250 490"/>
+  </g>
+
+  <!-- 예: 가로 분기 -->
+  <g stroke="#125DE6" stroke-width="1.6" fill="none" marker-end="url(#arrowBlue)">
+    <path d="M 400 154 L 496 154"/>
+    <path d="M 400 278 L 496 278"/>
+    <path d="M 400 402 L 496 402"/>
+  </g>
+
+  <g font-size="13" fill="#125DE6" text-anchor="middle">
+    <text x="448" y="146">예</text>
+    <text x="448" y="270">예</text>
+    <text x="448" y="394">예</text>
+  </g>
+  <g font-size="13" fill="#586F81" text-anchor="start">
+    <text x="260" y="219">아니오</text>
+    <text x="260" y="343">아니오</text>
+    <text x="260" y="467">아니오</text>
+  </g>
+
+  <!-- 시작 -->
+  <rect x="100" y="30" width="300" height="52" rx="8" fill="#125DE6"/>
+  <text x="250" y="62" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">증상: 인스턴스 생성 실패</text>
+
+  <!-- 판단 -->
+  <g fill="#FFFFFF" stroke="#125DE6" stroke-width="1.6">
+    <path d="M 118 122 L 382 122 L 400 154 L 382 186 L 118 186 L 100 154 Z"/>
+    <path d="M 118 246 L 382 246 L 400 278 L 382 310 L 118 310 L 100 278 Z"/>
+    <path d="M 118 370 L 382 370 L 400 402 L 382 434 L 118 434 L 100 402 Z"/>
+  </g>
+  <g font-size="14.5" fill="#1A1A1A" text-anchor="middle">
+    <text x="250" y="159">쿼터가 부족한가?</text>
+    <text x="250" y="283">개인 이미지를 사용했는가?</text>
+    <text x="250" y="407">오류 메시지가 가용량 부족인가?</text>
+  </g>
+
+  <!-- 결과 -->
+  <g fill="#FFFFFF" stroke="#BED0DE" stroke-width="1.6">
+    <rect x="500" y="126" width="380" height="56" rx="8"/>
+    <rect x="500" y="250" width="380" height="56" rx="8"/>
+    <rect x="500" y="374" width="380" height="56" rx="8"/>
+    <rect x="100" y="490" width="300" height="60" rx="8"/>
+  </g>
+  <g font-size="14.5" fill="#1A1A1A" text-anchor="middle">
+    <text x="690" y="159"><tspan font-weight="bold" fill="#003087">원인 1</tspan>  리소스 정리 또는 쿼터 조정 신청</text>
+    <text x="690" y="283"><tspan font-weight="bold" fill="#003087">원인 2</tspan>  이미지 크기·속성 확인</text>
+    <text x="690" y="407"><tspan font-weight="bold" fill="#003087">원인 3</tspan>  가용성 영역·타입 변경 또는 문의</text>
+    <text x="250" y="514"><tspan font-weight="bold" fill="#003087">원인 4</tspan>  삭제 후 재생성,</text>
+    <text x="250" y="535">반복되면 문의</text>
+  </g>
+</svg>

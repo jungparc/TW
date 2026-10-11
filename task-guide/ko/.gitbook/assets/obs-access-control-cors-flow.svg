@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">브라우저와 Object Storage 사이에 놓인 접근 제어 관문</title>
+  <desc id="desc">페이지가 실행되는 브라우저와 Object Storage는 서로 다른 호스트이므로 요청은 다른 출처로 취급됩니다. 요청은 Object Storage의 접근 정책이 권한을 확인하고, 돌아온 응답은 브라우저가 허용 출처인지 확인한 다음에야 스크립트에 전달됩니다.</desc>
+
+  <defs>
+    <style>
+      .lbl { font-family: 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; }
+      .panel-title { font-size: 15px; font-weight: 700; }
+      .node-title { font-size: 16px; font-weight: 700; }
+      .node-sub   { font-size: 13px; }
+      .edge-lbl   { font-size: 13px; fill: #586F81; }
+      .note       { font-size: 12px; fill: #586F81; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#125DE6"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#586F81"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="420" fill="#FFFFFF"/>
+
+  <!-- 브라우저 영역 -->
+  <rect x="25" y="60" width="400" height="300" rx="10" fill="#F4F6F8" stroke="#586F81" stroke-width="2"/>
+  <text class="lbl panel-title" x="45" y="88" fill="#003087">브라우저</text>
+
+  <!-- 페이지 -->
+  <rect x="50" y="105" width="350" height="85" rx="8" fill="#FFFFFF" stroke="#586F81" stroke-width="2"/>
+  <text class="lbl node-title" x="70" y="133" fill="#003087">페이지</text>
+  <text class="lbl node-sub"   x="70" y="155" fill="#586F81">https://app.example.com</text>
+  <text class="lbl node-sub"   x="70" y="177" fill="#586F81">스크립트가 fetch()로 오브젝트를 요청</text>
+
+  <!-- CORS 확인 -->
+  <rect x="230" y="230" width="180" height="80" rx="8" fill="#FFFFFF" stroke="#125DE6" stroke-width="2"/>
+  <text class="lbl node-title" x="320" y="262" text-anchor="middle" fill="#003087">CORS 확인</text>
+  <text class="lbl node-sub"   x="320" y="285" text-anchor="middle" fill="#586F81">허용 출처인가</text>
+
+  <!-- 차단 -->
+  <rect x="50" y="245" width="150" height="55" rx="8" fill="#FFFFFF" stroke="#586F81" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="lbl node-title" x="125" y="269" text-anchor="middle" fill="#586F81">차단</text>
+  <text class="lbl note"       x="125" y="288" text-anchor="middle">TypeError</text>
+
+  <!-- CORS → 페이지 -->
+  <line x1="320" y1="230" x2="320" y2="196" stroke="#125DE6" stroke-width="2" marker-end="url(#arrow)"/>
+  <text class="lbl edge-lbl" x="336" y="218">③ 통과하면 응답을 읽음</text>
+
+  <!-- CORS → 차단 -->
+  <line x1="230" y1="272" x2="207" y2="272" stroke="#586F81" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-gray)"/>
+
+  <!-- Object Storage 영역 -->
+  <rect x="520" y="60" width="375" height="300" rx="10" fill="#F4F6F8" stroke="#586F81" stroke-width="2"/>
+  <text class="lbl panel-title" x="540" y="88" fill="#003087">Object Storage</text>
+  <text class="lbl note"        x="540" y="108">kr1-api-object-storage.nhncloudservice.com</text>
+
+  <!-- 접근 정책 -->
+  <rect x="545" y="145" width="155" height="85" rx="8" fill="#FFFFFF" stroke="#125DE6" stroke-width="2"/>
+  <text class="lbl node-title" x="622" y="180" text-anchor="middle" fill="#003087">접근 정책</text>
+  <text class="lbl node-sub"   x="622" y="203" text-anchor="middle" fill="#586F81">권한이 있는가</text>
+
+  <!-- 오브젝트 -->
+  <rect x="730" y="145" width="145" height="85" rx="8" fill="#125DE6" stroke="#125DE6" stroke-width="2"/>
+  <text class="lbl node-title" x="802" y="181" text-anchor="middle" fill="#FFFFFF">컨테이너의</text>
+  <text class="lbl node-title" x="802" y="203" text-anchor="middle" fill="#FFFFFF">오브젝트</text>
+
+  <!-- 접근 정책 → 오브젝트 -->
+  <line x1="700" y1="187" x2="722" y2="187" stroke="#125DE6" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 접근 정책에서 차단 -->
+  <rect x="545" y="265" width="155" height="55" rx="8" fill="#FFFFFF" stroke="#586F81" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="lbl node-title" x="622" y="289" text-anchor="middle" fill="#586F81">차단</text>
+  <text class="lbl note"       x="622" y="308" text-anchor="middle">401 Unauthorized</text>
+  <line x1="622" y1="230" x2="622" y2="259" stroke="#586F81" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-gray)"/>
+
+  <!-- ① 요청 -->
+  <line x1="405" y1="148" x2="538" y2="148" stroke="#125DE6" stroke-width="2" marker-end="url(#arrow)"/>
+  <text class="lbl edge-lbl" x="472" y="138" text-anchor="middle">① 요청</text>
+
+  <!-- ② 응답 -->
+  <path d="M 802 230 L 802 338 L 320 338 L 320 316" fill="none" stroke="#125DE6" stroke-width="2" marker-end="url(#arrow)"/>
+  <text class="lbl edge-lbl" x="472" y="329" text-anchor="middle">② 응답(200 OK)</text>
+
+  <!-- 하단 설명 -->
+  <text class="lbl edge-lbl" x="460" y="395" text-anchor="middle">페이지의 호스트와 Object Storage의 호스트가 달라 서로 다른 출처입니다</text>
+</svg>

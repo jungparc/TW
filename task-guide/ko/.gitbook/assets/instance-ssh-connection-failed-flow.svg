@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="640" viewBox="0 0 1040 640" font-family="'NanumSquare','Noto Sans KR','Malgun Gothic',sans-serif">
+  <!--
+    SSH 접속 실패 원인 판단 흐름
+    NHN Cloud 공식 브랜드 컬러(https://www.nhncloud.com/kr/intro/brand-guide)
+      BLUE #125DE6 / NAVY #003087 / GRAY #586F81 / LIGHT GRAY #BED0DE
+  -->
+  <defs>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#586F81"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#125DE6"/>
+    </marker>
+  </defs>
+
+  <rect width="1040" height="640" fill="#FFFFFF"/>
+
+  <!-- 오류 메시지 유형 분기 -->
+  <g stroke="#125DE6" stroke-width="1.6" fill="none" marker-end="url(#arrowBlue)">
+    <path d="M 370 150 L 180 150 L 180 250"/>
+    <path d="M 520 182 L 520 250"/>
+    <path d="M 670 150 L 860 150 L 860 250"/>
+  </g>
+
+  <!-- 예: 원인 3으로 수렴 -->
+  <g stroke="#125DE6" stroke-width="1.6" fill="none" marker-end="url(#arrowBlue)">
+    <path d="M 370 282 L 320 282 L 320 545 L 370 545"/>
+    <path d="M 710 282 L 690 282 L 690 563 L 670 563"/>
+  </g>
+
+  <!-- 아니오: 개별 원인으로 -->
+  <g stroke="#586F81" stroke-width="1.6" fill="none" marker-end="url(#arrowGray)">
+    <path d="M 520 314 L 520 390"/>
+    <path d="M 860 314 L 860 390"/>
+    <path d="M 180 306 L 180 570 L 370 570"/>
+  </g>
+
+  <!-- 분기 라벨 -->
+  <g font-size="12.5" fill="#125DE6" text-anchor="middle">
+    <text x="275" y="142">Connection timed out</text>
+    <text x="765" y="142">Connection refused</text>
+  </g>
+  <g font-size="12.5" fill="#125DE6" text-anchor="start">
+    <text x="530" y="222">Permission denied</text>
+  </g>
+  <g font-size="13" fill="#125DE6">
+    <text x="345" y="274" text-anchor="middle">예</text>
+    <text x="698" y="338" text-anchor="start">예</text>
+  </g>
+  <g font-size="13" fill="#586F81" text-anchor="start">
+    <text x="530" y="358">아니오</text>
+    <text x="870" y="358">아니오</text>
+    <text x="190" y="440">경로를 모두 열어도 실패</text>
+  </g>
+
+  <!-- 시작 -->
+  <rect x="370" y="30" width="300" height="52" rx="8" fill="#125DE6"/>
+  <text x="520" y="62" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">증상: SSH 접속 실패</text>
+
+  <!-- 판단 -->
+  <g fill="#FFFFFF" stroke="#125DE6" stroke-width="1.6">
+    <path d="M 388 118 L 652 118 L 670 150 L 652 182 L 388 182 L 370 150 Z"/>
+    <path d="M 388 250 L 652 250 L 670 282 L 652 314 L 388 314 L 370 282 Z"/>
+    <path d="M 728 250 L 992 250 L 1010 282 L 992 314 L 728 314 L 710 282 Z"/>
+  </g>
+  <g font-size="14.5" fill="#1A1A1A" text-anchor="middle">
+    <text x="520" y="155">오류 메시지 유형</text>
+    <text x="520" y="287">키페어와 계정이 맞는가?</text>
+    <text x="860" y="287">인스턴스가 정상 부팅됐는가?</text>
+  </g>
+
+  <!-- 결과 -->
+  <g fill="#FFFFFF" stroke="#BED0DE" stroke-width="1.6">
+    <rect x="30" y="250" width="300" height="56" rx="8"/>
+    <rect x="370" y="390" width="300" height="56" rx="8"/>
+    <rect x="710" y="390" width="300" height="56" rx="8"/>
+    <rect x="370" y="530" width="300" height="56" rx="8"/>
+  </g>
+  <g font-size="14.5" fill="#1A1A1A" text-anchor="middle">
+    <text x="180" y="283"><tspan font-weight="bold" fill="#003087">원인 1</tspan>  접속 경로 미도달</text>
+    <text x="520" y="423"><tspan font-weight="bold" fill="#003087">원인 2</tspan>  키페어 불일치</text>
+    <text x="860" y="423"><tspan font-weight="bold" fill="#003087">원인 4</tspan>  부팅 실패</text>
+    <text x="520" y="563"><tspan font-weight="bold" fill="#003087">원인 3</tspan>  OS 내부 SSH 차단</text>
+  </g>
+</svg>
