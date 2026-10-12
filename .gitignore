@@ -3,3 +3,7 @@ node_modules/
 
 # Claude Code 개인 설정
 .claude/settings.local.json
+
+# Python 캐시
+__pycache__/
+*.pyc
