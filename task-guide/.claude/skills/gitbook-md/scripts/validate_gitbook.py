@@ -90,6 +90,44 @@ def check(path, original=None):
                 % (i + 1, line.strip())
             )
 
+    # 2-2. 중첩 검사 (개수는 맞지만 블록이 교차하는 경우)
+    #
+    # {% hint %}
+    # {% endstep %}   <- hint 바깥에서 연 step 을 hint 안에서 닫음
+    # {% step %}
+    # {% endhint %}   <- step 안에서 hint 를 닫음
+    #
+    # 여는/닫는 태그 개수는 맞아 1번 검사를 통과하지만, 중첩이 아니라 교차라
+    # GitBook 이 파싱하지 못한다. 스택으로 열린 블록의 순서를 확인한다.
+    stack = []
+    for i, line in enumerate(lines, 1):
+        m_open = OPEN_TAG.match(line)
+        if m_open:
+            stack.append((m_open.group(1), i))
+            continue
+        m_close = CLOSE_TAG.match(line)
+        if not m_close:
+            continue
+        name = m_close.group(1)
+        if not stack:
+            problems.append(
+                "닫는 태그가 열린 블록 없이 나타남 (줄 %d): {%% end%s %%}" % (i, name)
+            )
+        elif stack[-1][0] != name:
+            open_name, open_line = stack[-1]
+            problems.append(
+                "태그 교차 중첩 (줄 %d): {%% end%s %%} 앞에 줄 %d 의 {%% %s %%} 가 먼저 닫혀야 함"
+                % (i, name, open_line, open_name)
+            )
+            # 같은 이름이 스택에 있으면 거기까지 비워 오탐이 줄줄이 이어지지 않게 한다
+            names = [n for n, _ in stack]
+            if name in names:
+                del stack[len(names) - 1 - names[::-1].index(name):]
+        else:
+            stack.pop()
+    for name, line_no in stack:
+        problems.append("닫히지 않은 태그 (줄 %d): {%% %s %%}" % (line_no, name))
+
     # 3. 코드 펜스 짝
     if raw.count(FENCE) % 2:
         problems.append("코드 펜스(```)의 개수가 홀수")

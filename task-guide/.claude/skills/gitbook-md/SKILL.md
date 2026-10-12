@@ -188,6 +188,18 @@ FAQ, 긴 참고 표, 선택적 상세 설명에 쓴다. GitBook은 HTML `<detail
 
 - 여는 태그 다음 줄과 닫는 태그 앞 줄의 빈 줄은 선택이다. 한 문서 안에서는 한쪽으로 통일한다(이 레포는 빈 줄 없이 붙여 쓴다).
 - 모든 태그는 짝을 맞춘다: `hint/endhint`, `code/endcode`, `tabs/endtabs`, `tab/endtab`, `stepper/endstepper`, `step/endstep`, `content-ref/endcontent-ref`.
+- **블록은 중첩만 되고 교차하면 안 된다.** 안쪽에서 연 블록을 안쪽에서 닫는다. 아래는 `step`과 `hint`가 서로 걸쳐 있어 GitBook이 파싱하지 못하는 예다. 여는 태그와 닫는 태그 **개수는 맞기 때문에** 눈으로는 멀쩡해 보이고, 결과만 깨진다(hint가 빈 상자가 되고 태그 문자열이 본문에 노출된다). 스테퍼를 나중에 덧씌울 때 가장 자주 나온다.
+
+  ```
+  {% hint style="info" %}
+  {% endstep %}   <- hint 바깥에서 연 step 을 hint 안에서 닫음
+
+  {% step %}
+  보충 설명.
+  {% endhint %}   <- step 안에서 hint 를 닫음
+  ```
+
+  step 경계는 hint 블록 바깥에 둔다. 섹션 전체(안쪽 hint 포함)가 하나의 step이 되는 것이 보통 맞다.
 - 코드 블록 안의 GitBook 태그 문자열은 변환 대상이 아니다. 예제 코드로 보호한다.
 
 ## 작업 순서
@@ -200,6 +212,6 @@ FAQ, 긴 참고 표, 선택적 상세 설명에 쓴다. GitBook은 HTML `<detail
    python3 scripts/validate_gitbook.py 변환본.md 원본.md
    ```
 
-   `scripts/validate_gitbook.py`는 태그 짝, 들여쓴 태그, **태그 블록 앞뒤의 빈 줄**, 코드 펜스 짝, hint 스타일 값을 확인하고, 원본 경로를 함께 주면 본문 텍스트가 보존됐는지도 비교한다. 종료 코드가 0이 아니면 고친 뒤 다시 실행한다.
+   `scripts/validate_gitbook.py`는 태그 짝, **태그 중첩(교차 여부)**, 들여쓴 태그, **태그 블록 앞뒤의 빈 줄**, 코드 펜스 짝, hint 스타일 값을 확인하고, 원본 경로를 함께 주면 본문 텍스트가 보존됐는지도 비교한다. 종료 코드가 0이 아니면 고친 뒤 다시 실행한다.
 
 4. 사용자에게 **무엇을 몇 개 바꿨는지**와 **판단이 필요해 손대지 않은 블록**을 짧게 보고한다.
