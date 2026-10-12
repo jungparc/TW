@@ -132,6 +132,45 @@ FAQ, 긴 참고 표, 선택적 상세 설명에 쓴다. GitBook은 HTML `<detail
 {% endcontent-ref %}
 ```
 
+### 8. 카드 표 (cards) — 아이콘 열
+
+"응용하기", "관련 문서"처럼 여러 문서를 나란히 소개하는 블록은 `<table data-view="cards">`로 만든다. 카드 맨 앞에 주제를 알려 주는 아이콘 열을 둘 수 있다.
+
+아이콘은 이모지가 아니라 **GitBook의 Font Awesome 문법**을 쓴다. `class`의 `fa-` 뒤 이름과 안쪽 `:이름:`이 같아야 한다.
+
+```
+<td><h4><i class="fa-clock">:clock:</i></h4></td>
+```
+
+`<h4>`로 감싸야 카드 안에서 아이콘이 제목 크기로 커진다. 감싸지 않으면 본문 크기로 작게 표시된다.
+
+전체 형태는 다음과 같다. 마지막 열은 카드 전체를 링크로 만드는 숨은 열이다.
+
+```
+<table data-view="cards">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th data-hidden data-card-target data-type="content-ref"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h4><i class="fa-clock">:clock:</i></h4></td>
+      <td><strong>일정 주기로 실행</strong></td>
+      <td>카드 설명.</td>
+      <td><a href="https://example.com/">https://example.com/</a></td>
+    </tr>
+  </tbody>
+</table>
+```
+
+**`<thead>`의 `<th>` 개수와 각 행의 `<td>` 개수가 반드시 같아야 한다.** 아이콘 열을 추가할 때 `<th></th>`를 빠뜨리면 열이 밀려 마지막 숨은 열이 드러나고 카드 링크가 깨진다. 숨은 열(`data-hidden data-card-target`)도 개수에 포함한다.
+
+아이콘 이름은 한 레포 안에서 같은 뜻에 같은 이름을 쓴다. 이 레포의 기존 사용례는 `ko/README.md`의 "자주 찾는 트러블슈팅" 표를 참고한다.
+
 ## 반드시 지킬 것 (파싱 오류 방지)
 
 - **`{% ... %}` 태그는 반드시 열의 맨 앞(들여쓰기 0)에서 시작한다.** 목록 항목 안에 들여쓴 hint·code 태그는 GitBook이 파싱하지 못한다. 목록 안 코드 블록은 일반 fenced block으로 두고, 꼭 필요하면 목록 밖으로 뺀다.

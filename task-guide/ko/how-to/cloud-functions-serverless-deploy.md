@@ -151,9 +151,11 @@ fmt.Println(string(body))                      // hello, world!
 
 
 ## 응용하기
+
 <table data-view="cards">
   <thead>
     <tr>
+      <th></th>
       <th></th>
       <th></th>
       <th data-hidden data-card-target data-type="content-ref"></th>
@@ -161,23 +163,25 @@ fmt.Println(string(body))                      // hello, world!
   </thead>
   <tbody>
     <tr>
+      <td><h4><i class="fa-clock">:clock:</i></h4></td>
       <td><strong>일정 주기로 실행</strong></td>
       <td>Timer 트리거를 추가하면 크론 표현식으로 지정한 주기마다 함수를 실행할 수 있습니다. API Gateway와 연동해 인증이나 사용량 제어를 붙일 수도 있습니다.</td>
       <td><a href="https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/trigger-guide">https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/trigger-guide</a></td>
     </tr>
     <tr>
+      <td><h4><i class="fa-gear">:gear:</i></h4></td>
       <td><strong>설정값을 코드와 분리</strong></td>
       <td>외부 서비스 인증 정보나 접속 정보를 코드에 넣지 않고 환경 변수로 등록할 수 있습니다.</td>
       <td><a href="https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/console-guide/#function-environment-variables">https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/console-guide/#function-environment-variables</a></td>
     </tr>
     <tr>
+      <td><h4><i class="fa-file-lines">:file-lines:</i></h4></td>
       <td><strong>실행 로그 확인</strong></td>
       <td>로그 서비스 연동을 사용하면 함수 실행 로그를 Log & Crash Search에서 조회할 수 있습니다.</td>
       <td><a href="https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/console-guide/#basic-information-of-functions">https://docs.nhncloud.com/ko/Compute/Cloud%20Functions/ko/console-guide/#basic-information-of-functions</a></td>
     </tr>
   </tbody>
 </table>
-
 
 ## 정리하기
 
