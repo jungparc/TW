@@ -62,7 +62,7 @@ telnet이 설치되어 있다면 `telnet {인스턴스IP} 22`로도 확인할 �
 
 원인은 접속 경로, 인증, 인스턴스 내부의 세 단계에 걸쳐 있습니다. 다음 흐름으로 원인을 좁힌 뒤 해당 원인의 해결 방법을 적용하세요.
 
-![SSH 접속 실패 원인 판단 흐름](images/instance-ssh-connection-failed-flow.svg)
+![SSH 접속 실패 원인 판단 흐름](../images/instance-ssh-connection-failed-flow.svg)
 
 ### 원인 1: 접속 경로가 인스턴스까지 닿지 않음
 

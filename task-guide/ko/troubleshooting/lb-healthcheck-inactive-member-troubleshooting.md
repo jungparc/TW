@@ -37,7 +37,7 @@ Load Balancer 콘솔에서 멤버 그룹의 멤버 상태를 확인하면, 등�
 
 Load Balancer는 헬스 체크 기능으로 멤버의 상태를 주기적으로 점검합니다. 설정된 프로토콜과 포트로 멤버 인스턴스에 요청을 보내고, 지정한 시간(타임아웃) 안에 정상 응답 코드가 돌아오지 않으면 해당 멤버를 `INACTIVE`로 전환해 트래픽 대상에서 제외합니다. 원인은 이 점검 과정의 어느 단계에서 막혔는지에 따라 다음 여섯 가지로 나뉩니다.
 
-![Load Balancer 멤버 INACTIVE 상태 진단 플로우차트](images/lb-healthcheck-inactive-member-troubleshooting-flow.svg)
+![Load Balancer 멤버 INACTIVE 상태 진단 플로우차트](../images/lb-healthcheck-inactive-member-troubleshooting-flow.svg)
 
 ### 원인 1: 멤버가 속한 보안 그룹이 Load Balancer의 트래픽을 허용하지 않음
 

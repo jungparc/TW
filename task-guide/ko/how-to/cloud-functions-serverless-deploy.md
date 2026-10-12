@@ -8,7 +8,7 @@ Cloud Functions는 서버를 직접 준비하지 않고 함수 단위로 코드�
 
 이 가이드를 따라하면 콘솔에서 함수를 만들고 코드를 빌드해 배포한 다음, 발급된 엔드포인트 URL을 호출해 응답을 확인할 수 있습니다.
 
-![클라이언트의 요청이 함수 엔드포인트를 거쳐 함수 인스턴스에서 실행된 뒤 응답으로 돌아오고, 호출이 없으면 인스턴스가 제거되는 구성](images/cloud-functions-serverless-deploy-flow.svg)
+![클라이언트의 요청이 함수 엔드포인트를 거쳐 함수 인스턴스에서 실행된 뒤 응답으로 돌아오고, 호출이 없으면 인스턴스가 제거되는 구성](../images/cloud-functions-serverless-deploy-flow.svg)
 
 ## 사전 준비하기
 - NHN Cloud 콘솔에서 Cloud Functions 서비스가 활성화되어 있어야 합니다.

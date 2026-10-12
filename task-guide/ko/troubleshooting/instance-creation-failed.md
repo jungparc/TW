@@ -18,7 +18,7 @@ NHN Cloud 콘솔 또는 API로 새 인스턴스를 생성했는데, 인스턴스
 
 인스턴스 생성이 실패하는 원인은 다양합니다. 다음 흐름으로 원인을 좁힌 뒤, 원인별로 이어지는 해결 방법을 적용하세요.
 
-![인스턴스 생성 실패 원인 판단 흐름](images/instance-creation-failed-flow.svg)
+![인스턴스 생성 실패 원인 판단 흐름](../images/instance-creation-failed-flow.svg)
 
 ### 원인 1: 프로젝트 쿼터 초과
 

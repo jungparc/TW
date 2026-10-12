@@ -6,7 +6,7 @@ Object Storage는 데이터를 오브젝트 단위로 저장하는 스토리지 
 
 이 가이드를 따라하면 빌드한 정적 파일을 Object Storage 컨테이너에 올려, 외부에서 접속할 수 있는 웹사이트로 공개할 수 있습니다.
 
-![Object Storage 정적 웹사이트 호스팅 구성: 빌드 파일 업로드 → PUBLIC 컨테이너 → 사용자 브라우저, 필요하면 CDN 경유](images/obs-static-website-hosting-flow.svg)
+![Object Storage 정적 웹사이트 호스팅 구성: 빌드 파일 업로드 → PUBLIC 컨테이너 → 사용자 브라우저, 필요하면 CDN 경유](../images/obs-static-website-hosting-flow.svg)
 
 ## 시작하기 전에
 
