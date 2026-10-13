@@ -43,6 +43,15 @@ TAG_LINE = re.compile(r"^\s*\{%.*%\}\s*$")
 OPEN_TAG = re.compile(r"^\{%\s*(hint|code|tabs|tab|stepper|step|content-ref)(?=[\s%])")
 CLOSE_TAG = re.compile(r"^\{%\s*end(hint|code|tabs|tab|stepper|step|content-ref)\s*%\}")
 
+# 본문 비교 전에 지울 HTML 태그. `<` 뒤에 태그 이름이 오는 경우로 한정한다.
+#
+# `<[^>]+>` 로 두면 본문의 `<`(미만), `>=`(이상) 같은 비교 연산자나 `**A > B**`
+# 같은 메뉴 경로 표기를 태그로 오인해 그 사이 텍스트를 통째로 지운다. 게다가
+# 인용문이 hint 로 바뀌면서 줄머리 `>` 가 사라지면 매칭이 끊기는 위치가 원본과
+# 변환본에서 달라져, 서로 다른 구간을 잃은 채 비교하게 된다. 래핑만 한 문서가
+# "본문 텍스트가 원본과 다름" 으로 FAIL 하던 원인이다.
+HTML_TAG = re.compile(r"<!--.*?-->|</?[A-Za-z][A-Za-z0-9-]*(?:\s[^<>]*)?/?>", re.S)
+
 
 def check(path, original=None):
     raw = open(path, encoding="utf-8").read()
@@ -151,7 +160,7 @@ def check(path, original=None):
             t = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", t)
             t = re.sub(r"\{%[^%]*%\}", "", t)           # GitBook 태그 제거
             t = re.sub(r"\[!\w+\]", "", t)               # GitHub alert 라벨 제거 (hint 로 바뀌며 사라짐)
-            t = re.sub(r"<[^>]+>", "", t)                # details 등 HTML 태그 제거
+            t = HTML_TAG.sub("", t)                      # details 등 HTML 태그 제거
             t = re.sub(r"[💡⚠️❗✅🔔>\s]", "", t)         # 라벨 이모지·인용 기호·공백 제거
             return t
 
