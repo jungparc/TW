@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="'Pretendard', sans-serif">
+  <rect width="960" height="400" rx="12" fill="#F7F7F7"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8B8B8B"/>
+    </marker>
+  </defs>
+
+  <!-- ===== NHN Cloud 영역 ===== -->
+  <rect x="260" y="30" width="660" height="340" rx="8" fill="#E7F2FF" opacity="0.4"/>
+  <text x="276" y="50" fill="#125DE6" font-size="13" font-weight="700">NHN Cloud</text>
+
+  <!-- ===== 클라이언트 (외부, cx=110, cy=200) ===== -->
+  <circle cx="110" cy="200" r="32" fill="#FFFFFF"/>
+  <g transform="translate(92.6, 182.6) scale(0.6)">
+    <circle cx="29" cy="17" r="10" fill="#C8CCD4"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M50 50C50 37.2174 40.598 29 29 29C17.402 29 8 37.2174 8 50H50Z" fill="#C8CCD4"/>
+  </g>
+  <text x="110" y="250" text-anchor="middle" fill="#2D2D2D" font-size="13" font-weight="600">클라이언트</text>
+
+  <!-- ===== HTTP 화살표 (클라이언트 → LB) ===== -->
+  <line x1="142" y1="200" x2="362" y2="200" stroke="#8B8B8B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="252" y="188" text-anchor="middle" fill="#444444" font-size="11" font-weight="600">HTTP</text>
+
+  <!-- ===== L7 Load Balancer (cx=400, cy=200) ===== -->
+  <circle cx="400" cy="200" r="36" fill="#FFFFFF"/>
+  <g transform="translate(386, 186) scale(0.7)">
+    <path d="M24 4C25.1046 4 26 4.89543 26 6V14C26 15.1046 25.1046 16 24 16H22V20H34V26.5361C35.1954 27.2278 36 28.5196 36 30C36 32.2091 34.2091 34 32 34C29.7909 34 28 32.2091 28 30C28 28.5196 28.8046 27.2278 30 26.5361V24H22V26.5361C23.1954 27.2278 24 28.5196 24 30C24 32.2091 22.2091 34 20 34C17.7909 34 16 32.2091 16 30C16 28.5196 16.8046 27.2278 18 26.5361V24H10V26.5361C11.1954 27.2278 12 28.5196 12 30C12 32.2091 10.2091 34 8 34C5.79086 34 4 32.2091 4 30C4 28.5196 4.80464 27.2278 6 26.5361V20H18V16H16C14.8954 16 14 15.1046 14 14V6C14 4.89543 14.8954 4 16 4H24Z" fill="#125DE6"/>
+  </g>
+  <text x="400" y="254" text-anchor="middle" fill="#2D2D2D" font-size="13" font-weight="600">Load Balancer</text>
+  <!-- ===== L7 규칙 외곽선 노드 ===== -->
+  <rect x="360" y="262" width="80" height="24" rx="6" fill="none" stroke="#125DE6" stroke-width="1.5"/>
+  <text x="400" y="278" text-anchor="middle" fill="#125DE6" font-size="11" font-weight="600">L7 규칙</text>
+
+  <!-- ===== API 서버 풀 (cx=720, cy=100) ===== -->
+  <rect x="650" y="80" width="140" height="42" rx="6" fill="#646464"/>
+  <text x="720" y="100" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">API 서버 풀</text>
+  <text x="720" y="114" text-anchor="middle" fill="#DCDCDC" font-size="10">(api-pool)</text>
+
+  <!-- ===== 기본 웹 서버 풀 (cx=720, cy=200) ===== -->
+  <rect x="650" y="180" width="140" height="42" rx="6" fill="#646464"/>
+  <text x="720" y="200" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">기본 웹 서버 풀</text>
+  <text x="720" y="214" text-anchor="middle" fill="#DCDCDC" font-size="10">(default-web-pool)</text>
+
+  <!-- ===== 정적 서버 풀 (cx=720, cy=300) ===== -->
+  <rect x="650" y="280" width="140" height="42" rx="6" fill="#646464"/>
+  <text x="720" y="300" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">정적 서버 풀</text>
+  <text x="720" y="314" text-anchor="middle" fill="#DCDCDC" font-size="10">(static-pool)</text>
+
+  <!-- ===== 라우팅 화살표 (LB → 서버 풀) ===== -->
+  <!-- /api/* → API 서버 풀 -->
+  <line x1="436" y1="188" x2="648" y2="101" stroke="#8B8B8B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="497" y="114" width="66" height="20" rx="4" fill="#EEEEEE"/>
+  <text x="530" y="128" text-anchor="middle" fill="#2D2D2D" font-size="11" font-family="'Consolas', 'Courier New', monospace">/api/*</text>
+
+  <!-- /* (기본) → 기본 웹 서버 풀 -->
+  <line x1="436" y1="200" x2="648" y2="200" stroke="#8B8B8B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="501" y="178" width="82" height="20" rx="4" fill="#EEEEEE"/>
+  <text x="542" y="192" text-anchor="middle" fill="#2D2D2D" font-size="11" font-family="'Consolas', 'Courier New', monospace">/* (기본)</text>
+
+  <!-- /static/* → 정적 서버 풀 -->
+  <line x1="436" y1="212" x2="648" y2="301" stroke="#8B8B8B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="493" y="266" width="74" height="20" rx="4" fill="#EEEEEE"/>
+  <text x="530" y="280" text-anchor="middle" fill="#2D2D2D" font-size="11" font-family="'Consolas', 'Courier New', monospace">/static/*</text>
+</svg>

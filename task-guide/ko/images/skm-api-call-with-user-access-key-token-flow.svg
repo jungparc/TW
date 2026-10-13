@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" font-family="'Pretendard', sans-serif">
+  <rect width="880" height="460" rx="12" fill="#F7F7F7"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8B8B8B"/>
+    </marker>
+  </defs>
+
+  <g transform="translate(0, 10)">
+    <!-- ===== 상단 참가자 ===== -->
+    <!-- 사용자 -->
+    <circle cx="120" cy="50" r="32" fill="#FFFFFF"/>
+    <g transform="translate(102.6, 32.6) scale(0.6)">
+      <circle cx="29" cy="17" r="10" fill="#C8CCD4"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M50 50C50 37.2174 40.598 29 29 29C17.402 29 8 37.2174 8 50H50Z" fill="#C8CCD4"/>
+    </g>
+    <text x="120" y="100" text-anchor="middle" fill="#2D2D2D" font-size="13" font-weight="600">사용자</text>
+
+    <!-- 인증 서버 -->
+    <rect x="340" y="26" width="160" height="48" rx="6" fill="#646464"/>
+    <text x="420" y="55" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="600">인증 서버</text>
+
+    <!-- Secure Key Manager -->
+    <circle cx="720" cy="50" r="32" fill="#FFFFFF"/>
+    <g transform="translate(700, 30)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M36 20C36 24.4183 32.4183 28 28 28C24.2723 28 21.1401 25.4505 20.252 22H16V26H12V22H8V26H4V22V18H8H12H16H20.252C21.1401 14.5495 24.2723 12 28 12C32.4183 12 36 15.5817 36 20ZM32 20C32 22.2091 30.2091 24 28 24C25.7909 24 24 22.2091 24 20C24 17.7909 25.7909 16 28 16C30.2091 16 32 17.7909 32 20Z" fill="#125DE6"/>
+    </g>
+    <text x="720" y="100" text-anchor="middle" fill="#2D2D2D" font-size="12" font-weight="600">Secure Key Manager</text>
+
+    <!-- ===== 라이프라인 ===== -->
+    <line x1="120" y1="110" x2="120" y2="395" stroke="#DCDCDC" stroke-width="1" stroke-dasharray="6,4"/>
+    <line x1="420" y1="110" x2="420" y2="395" stroke="#DCDCDC" stroke-width="1" stroke-dasharray="6,4"/>
+    <line x1="720" y1="110" x2="720" y2="395" stroke="#DCDCDC" stroke-width="1" stroke-dasharray="6,4"/>
+
+    <!-- ===== 단계별 화살표 ===== -->
+    <!-- Step 1: 사용자→인증서버 -->
+    <rect x="158" y="131" width="18" height="18" rx="9" fill="#2D2D2D"/>
+    <text x="167" y="144" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">1</text>
+    <text x="182" y="144" fill="#444444" font-size="12">User Access Key로 토큰 발급 요청</text>
+    <line x1="120" y1="162" x2="420" y2="162" stroke="#8B8B8B" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 2: 인증서버→사용자 -->
+    <rect x="211" y="201" width="18" height="18" rx="9" fill="#2D2D2D"/>
+    <text x="220" y="214" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">2</text>
+    <text x="235" y="214" fill="#444444" font-size="12">Bearer 토큰 반환</text>
+    <line x1="420" y1="232" x2="120" y2="232" stroke="#8B8B8B" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 3: 사용자→SKM -->
+    <rect x="308" y="271" width="18" height="18" rx="9" fill="#2D2D2D"/>
+    <text x="317" y="284" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">3</text>
+    <text x="332" y="284" fill="#444444" font-size="12">토큰으로 기밀 데이터 조회 API 호출</text>
+    <line x1="120" y1="302" x2="720" y2="302" stroke="#8B8B8B" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 4: SKM→사용자 -->
+    <rect x="371" y="341" width="18" height="18" rx="9" fill="#2D2D2D"/>
+    <text x="380" y="354" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">4</text>
+    <text x="395" y="354" fill="#444444" font-size="12">기밀 데이터 응답</text>
+    <line x1="720" y1="372" x2="120" y2="372" stroke="#8B8B8B" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrowhead)"/>
+
+    <!-- ===== 하단 라벨 ===== -->
+    <text x="120" y="420" text-anchor="middle" fill="#2D2D2D" font-size="13" font-weight="600">사용자</text>
+    <text x="420" y="420" text-anchor="middle" fill="#2D2D2D" font-size="13" font-weight="600">인증 서버</text>
+    <text x="720" y="420" text-anchor="middle" fill="#2D2D2D" font-size="12" font-weight="600">Secure Key Manager</text>
+  </g>
+</svg>

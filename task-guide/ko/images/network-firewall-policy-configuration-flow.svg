@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="'Pretendard', sans-serif">
+  <rect width="960" height="500" rx="12" fill="#F7F7F7"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8B8B8B"/>
+    </marker>
+  </defs>
+
+  <!-- ===== NHN Cloud 영역 ===== -->
+  <rect x="40" y="10" width="880" height="480" rx="8" fill="#E7F2FF" opacity="0.4"/>
+  <text x="56" y="28" fill="#125DE6" font-size="13" font-weight="700">NHN Cloud</text>
+
+  <!-- ===== Network Firewall 컨테이너 ===== -->
+  <rect x="252" y="42" width="456" height="214" rx="8" fill="#FFFFFF"/>
+
+  <!-- NF 아이콘 + 타이틀 (좌측 상단, 가로 배치) -->
+  <g transform="translate(264, 51) scale(0.45)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0001 21V24.4285H21.7143V21H14.0001ZM14 25.2859V28.7144H25.9998V25.2859H14ZM22.5715 24.4285V21H26V24.4285H22.5715ZM14 29.5715V33H17.4285V29.5715H14ZM18.2859 32.9998V29.5713H26V32.9998H18.2859Z" fill="#125DE6"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2222 28.9998L10.2706 28.9996H12.7L12.7001 23.9859V19.7H27.3L27.2997 25.7285L27.3 28.2713V28.9996H27.9161C27.944 28.9999 27.972 29 28 29C32.4183 29 36 25.4355 36 21.0384C36 16.736 32.5707 13.2306 28.284 13.0818C26.821 8.95626 22.8687 6 18.2225 6C12.3315 6 7.55585 10.7527 7.55585 16.6154C7.55585 16.8127 7.56126 17.0087 7.57193 17.2033C5.46093 18.1938 4 20.3308 4 22.8074C4 26.2274 6.78578 28.9998 10.2222 28.9998ZM21.7142 24.4285H14.0001V21H21.7142V24.4285ZM25.9997 24.4285H22.5715V21H26L25.9997 24.4285ZM14 28.7144L14.0001 25.2859H25.9997V28.7144H14Z" fill="#125DE6"/>
+  </g>
+  <text x="286" y="65" fill="#125DE6" font-size="13" font-weight="700">Network Firewall</text>
+
+  <!-- ===== 객체 등록 외곽선 박스 (NF 내부) ===== -->
+  <rect x="264" y="78" width="432" height="88" rx="6" fill="none" stroke="#125DE6" stroke-width="1.5"/>
+  <text x="480" y="94" text-anchor="middle" fill="#125DE6" font-size="11" font-weight="600">객체 등록</text>
+
+  <!-- IP 객체 서브박스 -->
+  <rect x="274" y="100" width="200" height="56" rx="4" fill="#F7F7F7"/>
+  <text x="374" y="116" text-anchor="middle" fill="#444444" font-size="11" font-weight="600">IP 객체</text>
+  <text x="374" y="132" text-anchor="middle" fill="#2D2D2D" font-size="10">web-subnet</text>
+  <text x="374" y="146" text-anchor="middle" fill="#2D2D2D" font-size="10">db-subnet</text>
+
+  <!-- 포트 객체 서브박스 -->
+  <rect x="486" y="100" width="200" height="56" rx="4" fill="#F7F7F7"/>
+  <text x="586" y="116" text-anchor="middle" fill="#444444" font-size="11" font-weight="600">포트 객체</text>
+  <text x="586" y="132" text-anchor="middle" fill="#2D2D2D" font-size="10">mysql-port</text>
+  <text x="586" y="146" text-anchor="middle" fill="#2D2D2D" font-size="10">(TCP/3306)</text>
+
+  <!-- ===== ①② 객체 → ACL 정책 화살표 (NF 내부) ===== -->
+  <line x1="480" y1="166" x2="480" y2="212" stroke="#8B8B8B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="498" y="172" width="18" height="18" rx="9" fill="#2D2D2D"/>
+  <text x="507" y="185" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">1</text>
+  <text x="520" y="185" fill="#444444" font-size="10">출발지/목적지 지정</text>
+
+  <rect x="498" y="194" width="18" height="18" rx="9" fill="#2D2D2D"/>
+  <text x="507" y="207" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">2</text>
+  <text x="520" y="207" fill="#444444" font-size="10">목적지 포트 지정</text>
+
+  <!-- ===== ACL 정책 외곽선 노드 (NF 내부) ===== -->
+  <rect x="420" y="218" width="120" height="28" rx="6" fill="none" stroke="#125DE6" stroke-width="1.5"/>
+  <text x="480" y="236" text-anchor="middle" fill="#125DE6" font-size="11" font-weight="600">ACL 정책</text>
+
+  <!-- ===== 웹 서브넷 (left, cx=132) ===== -->
+  <rect x="68" y="212" width="128" height="42" rx="6" fill="#646464"/>
+  <text x="132" y="232" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">웹 서브넷</text>
+  <text x="132" y="246" text-anchor="middle" fill="#DCDCDC" font-size="10">(출발지)</text>
+
+  <!-- ===== DB 서브넷 (right, cx=828) ===== -->
+  <rect x="764" y="212" width="128" height="42" rx="6" fill="#646464"/>
+  <text x="828" y="232" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="600">DB 서브넷</text>
+  <text x="828" y="246" text-anchor="middle" fill="#DCDCDC" font-size="10">(목적지)</text>
+
+  <!-- ===== ③ 트래픽 화살표 (웹 서브넷 → ACL 정책) ===== -->
+  <line x1="196" y1="232" x2="418" y2="232" stroke="#8B8B8B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="200" y="200" width="18" height="18" rx="9" fill="#2D2D2D"/>
+  <text x="209" y="213" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">3</text>
+  <text x="222" y="213" fill="#444444" font-size="10">트래픽</text>
+
+  <!-- ===== ④ 허용 화살표 (ACL 정책 → DB 서브넷, 실선) ===== -->
+  <line x1="542" y1="226" x2="762" y2="226" stroke="#8B8B8B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== ④ 차단 화살표 (ACL 정책 → DB 서브넷, 점선) ===== -->
+  <line x1="542" y1="240" x2="762" y2="240" stroke="#8B8B8B" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+
+  <rect x="714" y="196" width="18" height="18" rx="9" fill="#2D2D2D"/>
+  <text x="723" y="209" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">4</text>
+  <text x="736" y="209" fill="#444444" font-size="10">허용/차단</text>
+
+  <!-- ===== ⑤ 로깅 화살표 (Network Firewall → 트래픽 로그) ===== -->
+  <line x1="480" y1="256" x2="480" y2="372" stroke="#8B8B8B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="498" y="304" width="18" height="18" rx="9" fill="#2D2D2D"/>
+  <text x="507" y="317" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">5</text>
+  <text x="520" y="317" fill="#444444" font-size="10">로깅</text>
+
+  <!-- ===== 트래픽 로그 (bottom center, cx=480) ===== -->
+  <rect x="420" y="376" width="120" height="36" rx="6" fill="#646464"/>
+  <text x="480" y="399" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="600">트래픽 로그</text>
+
+  <!-- ===== ⑥ 원격 전송 화살표 (트래픽 로그 → Log &amp; Crash Search) ===== -->
+  <line x1="540" y1="394" x2="730" y2="394" stroke="#8B8B8B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="604" y="362" width="18" height="18" rx="9" fill="#2D2D2D"/>
+  <text x="613" y="375" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700">6</text>
+  <text x="626" y="375" fill="#444444" font-size="10">원격 전송</text>
+
+  <!-- ===== Log &amp; Crash Search (bottom right, cx=758, cy=394) ===== -->
+  <circle cx="758" cy="394" r="28" fill="#FFFFFF"/>
+  <g transform="translate(746, 382) scale(0.6)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M21.725 6.73489C21.5492 6.43012 21.2962 6.17709 20.9914 6.00135C20.0346 5.44959 18.8116 5.77801 18.2598 6.73489L4.2674 31.0009C4.09222 31.3048 4 31.6493 4 32C4 33.1046 4.89543 34 6 34H33.9848C34.3355 34 34.68 33.9078 34.9838 33.7326C35.9407 33.1808 36.2691 31.9578 35.7174 31.0009L21.725 6.73489ZM17.9926 16V24H21.9926V16H17.9926ZM17.9926 30V26H21.9926V30H17.9926Z" fill="#125DE6"/>
+  </g>
+  <text x="758" y="440" text-anchor="middle" fill="#2D2D2D" font-size="12" font-weight="600">Log &amp; Crash Search</text>
+</svg>
