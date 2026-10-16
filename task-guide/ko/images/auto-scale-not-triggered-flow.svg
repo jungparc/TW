@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 832" width="980" height="832" role="img" aria-label="Auto Scale 스케일링 미동작 원인 판단 흐름">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8B8B8B"/>
+    </marker>
+    <style>
+      .t  { font-family: 'Pretendard', sans-serif; }
+      .q  { fill: #2D2D2D; font-size: 14px; }
+      .f  { fill: #FFFFFF; font-size: 14px; }
+      .s  { fill: #FFFFFF; font-size: 15px; font-weight: 700; }
+      .lb { fill: #444444; font-size: 12px; }
+    </style>
+  </defs>
+
+  <rect width="980" height="832" fill="#F7F7F7"/>
+
+  <!-- 흐름선 -->
+  <g stroke="#8B8B8B" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <path d="M 300 92  L 300 132"/>
+    <path d="M 300 204 L 300 252"/>
+    <path d="M 300 324 L 300 372"/>
+    <path d="M 300 444 L 300 492"/>
+    <path d="M 300 564 L 300 612"/>
+    <path d="M 300 684 L 300 732"/>
+    <path d="M 420 168 L 560 168"/>
+    <path d="M 420 288 L 560 288"/>
+    <path d="M 420 408 L 560 408"/>
+    <path d="M 420 528 L 560 528"/>
+    <path d="M 420 648 L 560 648"/>
+  </g>
+
+  <!-- 흐름선 라벨 -->
+  <g class="t lb">
+    <text x="312" y="228">정상</text>
+    <text x="312" y="348">조건 충족</text>
+    <text x="312" y="468">경과함</text>
+    <text x="312" y="588">여유 있음</text>
+    <text x="312" y="708">생성 성공</text>
+    <text x="490" y="160" text-anchor="middle">비정상</text>
+    <text x="490" y="280" text-anchor="middle">미충족</text>
+    <text x="490" y="400" text-anchor="middle">미경과</text>
+    <text x="490" y="520" text-anchor="middle">도달함</text>
+    <text x="490" y="640" text-anchor="middle">생성 실패</text>
+  </g>
+
+  <!-- 시작 -->
+  <rect x="180" y="40" width="240" height="52" rx="6" fill="#003087"/>
+  <text class="t s" x="300" y="72" text-anchor="middle">증상: 스케일링이 동작하지 않음</text>
+
+  <!-- 판단 노드 -->
+  <g fill="#FFFFFF" stroke="#125DE6" stroke-width="1.5">
+    <rect x="180" y="132" width="240" height="72" rx="6"/>
+    <rect x="180" y="252" width="240" height="72" rx="6"/>
+    <rect x="180" y="372" width="240" height="72" rx="6"/>
+    <rect x="180" y="492" width="240" height="72" rx="6"/>
+    <rect x="180" y="612" width="240" height="72" rx="6"/>
+  </g>
+  <g class="t q" text-anchor="middle">
+    <text x="300" y="162">스케일링 그룹 상태가</text>
+    <text x="300" y="182">정상인가?</text>
+    <text x="300" y="282">정책 조건이 실제 지표와</text>
+    <text x="300" y="302">맞는가?</text>
+    <text x="300" y="402">재사용 대기 시간이</text>
+    <text x="300" y="422">지났는가?</text>
+    <text x="300" y="522">최대 인스턴스 수와</text>
+    <text x="300" y="542">쿼터에 여유가 있는가?</text>
+    <text x="300" y="642">인스턴스 생성이</text>
+    <text x="300" y="662">성공하는가?</text>
+  </g>
+
+  <!-- 해결 노드 -->
+  <g fill="#125DE6">
+    <rect x="560" y="142" width="240" height="52" rx="6"/>
+    <rect x="560" y="262" width="240" height="52" rx="6"/>
+    <rect x="560" y="382" width="240" height="52" rx="6"/>
+    <rect x="560" y="502" width="240" height="52" rx="6"/>
+    <rect x="560" y="622" width="240" height="52" rx="6"/>
+    <rect x="180" y="732" width="240" height="60" rx="6"/>
+  </g>
+  <g class="t f" text-anchor="middle">
+    <text x="680" y="174">고객지원 문의</text>
+    <text x="680" y="294">임계치와 지속 시간 조정</text>
+    <text x="680" y="414">대기 후 재확인</text>
+    <text x="680" y="534">쿼터 상향 또는 최대 수 조정</text>
+    <text x="680" y="654">템플릿과 권한 점검</text>
+    <text x="300" y="758">Load Balancer</text>
+    <text x="300" y="778">헬스 체크 점검</text>
+  </g>
+</svg>
